@@ -1,0 +1,173 @@
+
+############################################################################################
+# Header 1  (ACTIVE HEADER)  [id 2582]  modified 2026-03-08 17:31:57
+############################################################################################
+container              [NO-TABLET,NO-MOBILE]
+  tx_headers            
+      button_text='Get a Quote'
+container               {class=mobilehaed} [NO-DESKTOP]
+  tx_headers            
+      button_text='Get a Quote'
+
+############################################################################################
+# Home  (FRONT PAGE)  [id 15]  modified 2026-03-08 16:50:49
+############################################################################################
+container              [NO-DESKTOP,NO-TABLET]
+  html                  
+container             
+  tx_hero_section        [NO-MOBILE]
+      title='Driving Logistics Excellence'  sub_title='Available for New Projects'  description='Reliable multimodal transportation, customs clearance, and supply chain management for com'  button_text='Contact Us'
+container             
+  container             
+    tx_about              
+        title='A Strategic Logistics Partner Built for Demanding Markets'  sub_title='About US'  title_2='Our Excellence'  description='Piris Road combines strong local operational capabilities with global logistics standards '
+  container             
+    tx_team_lists         
+        title='Driving Growth Through Logistics Excellence'  sub_title='Piris Road'  description='The opportunity to work abroad is a popular prospect, one'
+container             
+  tx_moving_text        
+container             
+  tx_about                {style=style_2}
+      title='Why Businesses Rely on Piris Road for Mission-Critical Shipments'  sub_title='Features'  title_2='Expert Team'
+container             
+  tx_brand              
+      title='Global Networks Supporting Local Excellence'  sub_title='Partners'  title_2='We Manage'
+container              [NO-DESKTOP,NO-TABLET,NO-MOBILE]
+  tx_service_section    
+      title='Driving Growth Through Logistics Excellence'  sub_title='Services'  description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt '  button_text='More Services'
+container             
+  tx_service_section      {style=style_2}
+      title='Driving Growth Through Logistics Excellence'  sub_title='Services'  big_title='Some of Services'  description='From small commercial shipments to complex industrial transport, Piris Road provides full-'  button_text='More Services'
+container             
+  tx_cta                
+      title='Together!'  sub_title="Let's Work"  description='At Avista Digital Agency, we provide a full range of digital solutions designed to help bu'  button_text='Get started today'
+container             
+  tx_pricing_section    
+      title='Our Philosophy .'  sub_title='Values'  description='Our Philosophy: Logistics Built on Responsibility, Precision, and Partnership'
+container             
+  tx_service_section      {style=style_3}
+      title='Our Working process'  sub_title='[Process]'  description='Every shipment is managed through a structured logistics workflow that ensures transparenc'  button_text='More Services'
+container             
+  tx_tabs               
+      title='Driving Growth Through Logistics Excellence'  sub_title='Awards'  title_2='Learn more from FAQs'
+container             
+  tx_post_grid          
+      title='Logistics Insights & Industry Updates'  sub_title='Press Release'  title_2='Best Logistics Company'  description='Expert perspectives on freight forwarding, customs regulations, cold chain logistics, and '  button_text='More Blog'
+
+############################################################################################
+# About  [id 23]  modified 2026-03-08 16:30:23
+############################################################################################
+container             
+  container             
+    tx_about              
+        title='A Strategic Logistics Partner Built for Demanding Markets'  sub_title='About US'  title_2='Our Excellence'  description='Piris Road combines strong local operational capabilities with global logistics standards '
+  container             
+    tx_team_lists         
+        title='Driving Growth Through Logistics Excellence'  sub_title='Piris Road'  description='The opportunity to work abroad is a popular prospect, one'
+container             
+  heading               
+      title='Our Story'
+  tx_service_section      {style=style_3}
+      title='Our Working process'  sub_title='[Process]'  description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt '  button_text='More Services'
+container             
+  tx_about                {style=style_5}
+      title='Strengthened compliance framework and international connectivity.'  sub_title='Ceo Message'  title_2='Heading Title 2'  description='“Road Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid'  button_text="LET'S GET STARTED"
+container             
+  tx_testimonial          {style=style_2}
+      title='Client success stories that inspire trust and growth.'  sub_title='Testimonial'  big_title='Testimonial'  description='The opportunity to work abroad is a popular prospect, one'
+container             
+  tx_cta                  {style=style_2}
+      sub_title='Need more assistance?'  description='Driving Growth Through Logistics Excellence'
+
+############################################################################################
+# Our Services  [id 25]  modified 2026-03-08 13:42:30
+############################################################################################
+container             
+  tx_service_section      {style=style_2}
+      sub_title='Services'  big_title='Our Services'  button_text='More Services'
+  tx_service_section      {style=style_7}
+      big_title='Our Services'
+container             
+  tx_about                {style=style_4}
+      title_2='Heading Title 2'  description='Piris Road has been a reliable logistics partner for our operations. Their ability to mana'
+
+############################################################################################
+# Contact us  [id 29]  modified 2026-03-08 16:27:41
+############################################################################################
+container             
+  tx_cta                  {style=style_2}
+      sub_title='Need more assistance?'  description='Driving Growth Through Logistics Excellence'
+container             
+  container             
+    container             
+      divider               
+      heading               
+          title='Find us Here'
+      icon-list             
+    container             
+      divider               
+      heading               
+          title='Get In touch'
+      icon-list             
+    container             
+      divider               
+      heading               
+          title='Training Hours'
+      icon-list             
+container             
+  google_maps           
+
+############################################################################################
+# Get a Quote  [id 3821]  modified 2026-01-31 09:28:11
+############################################################################################
+container             
+  shortcode             
+      shortcode='[contact-form-7 id="2f5f260" title="Contact form H_2"]'
+
+############################################################################################
+# Single service (library)  [id 3510]  modified 2026-01-11 14:29:20
+############################################################################################
+container             
+  container             
+    image                   {class=w-100}
+    heading               
+        title='About This Service'
+    theme-post-excerpt    
+    gallery               
+    heading               
+        title='Why Choice Us'
+    tx_service_section      {style=style_6}
+        title='Streamlined processes delivering exceptional digital results.'  sub_title='Work Process'  description='We provide comprehensive digital services, including branding, web design, marketing strat'
+
+############################################################################################
+# Single-page template -> singular/services  [id 3513]  modified 2026-01-31 16:27:27
+############################################################################################
+container             
+  container             
+    image                   {class=w-100}
+    heading               
+        title='About This Service'
+    theme-post-content    
+    gallery               
+    tx_service_section      {style=style_6}
+        title='Streamlined processes delivering exceptional digital results.'  sub_title='Why Choice Us'  description='We provide comprehensive digital services, including branding, web design, marketing strat'
+container             
+  tx_cta                  {style=style_2}
+      sub_title='Need more assistance?'  description='Driving Growth Through Logistics Excellence'
+container             
+  shortcode             
+      shortcode='[services_nav]'
+
+############################################################################################
+# Faq H_1 (section library)  [id 2141]  modified 2026-01-12 14:16:30
+############################################################################################
+container             
+  tx_faq                
+      sub_title='Sub Title'  description='The opportunity to work abroad is a popular prospect, one'
+
+############################################################################################
+# Footer 1  (ACTIVE FOOTER)  [id 2686]  modified 2026-03-08 16:12:44
+############################################################################################
+container             
+  tx_footers            
+      big_title='Avista'  button_text='info@gmail.com'

@@ -1,0 +1,45 @@
+====================================================================================================
+PAGE 2582 — Header 1 (ACTIVE HEADER)   (type=tf-header status=publish modified=2026-03-08 17:31:57)
+====================================================================================================
+container [1c910d8]
+  tx_headers [a98b99b]
+    · MEDIA   logo                               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/logo-png-file-copy-scaled.png (id=4622)
+    · MEDIA   mobile_logo                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/12/black-font-svg-file.svg (id=3122)
+    · TEXT    button_text                        Get a Quote
+    · TEXT    social_heading                     We're on social media:
+    · TEXT    social_links[0].social_icon.value  fab fa-facebook-f
+    · MEDIA   social_links[0].social_link        https://www.facebook.com/pirisroad.iq/
+    · TEXT    social_links[1].social_icon.value  fab fa-x-twitter
+    · TEXT    social_links[2].social_icon.value  fab fa-instagram
+    · MEDIA   social_links[2].social_link        https://www.instagram.com/pirisroad.iq
+    · TEXT    social_links[3].social_icon.value  fab fa-linkedin
+    · MEDIA   social_links[3].social_link        https://www.linkedin.com/company/pirisroad
+    · TEXT    gallery_heading                    Stay Inspired with Instagram
+    · TEXT    contact_text                       Contact Text
+    · MEDIA   button_link                        https://aquamarine-gnat-712272.hostingersite.com/elementor-page-3821/
+    · MEDIA   gallerys[0]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/right-pic.png (id=4140)
+    · MEDIA   gallerys[1]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/left-pic.png (id=4139)
+    · MEDIA   gallerys[2]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/4-reefer.png (id=4132)
+    · MEDIA   gallerys[3]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/2-cross-borader.png (id=4130)
+    · MEDIA   gallerys[4]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/1-sea-freight.png (id=4129)
+container [9191305]  {css_classes=mobilehaed}
+  tx_headers [c913930]
+    · MEDIA   logo                               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/logo-png-file-scaled.png (id=4618)
+    · MEDIA   mobile_logo                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/12/black-font-svg-file.svg (id=3122)
+    · TEXT    button_text                        Get a Quote
+    · TEXT    social_heading                     We're on social media:
+    · TEXT    social_links[0].social_icon.value  fab fa-facebook-f
+    · MEDIA   social_links[0].social_link        https://www.facebook.com/pirisroad.iq/
+    · TEXT    social_links[1].social_icon.value  fab fa-x-twitter
+    · TEXT    social_links[2].social_icon.value  fab fa-instagram
+    · MEDIA   social_links[2].social_link        https://www.instagram.com/pirisroad.iq
+    · TEXT    social_links[3].social_icon.value  fab fa-linkedin
+    · MEDIA   social_links[3].social_link        https://www.linkedin.com/company/pirisroad
+    · TEXT    gallery_heading                    Stay Inspired with Instagram
+    · TEXT    contact_text                       Contact Text
+    · MEDIA   button_link                        https://aquamarine-gnat-712272.hostingersite.com/elementor-page-3821/
+    · MEDIA   gallerys[0]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/right-pic.png (id=4140)
+    · MEDIA   gallerys[1]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/left-pic.png (id=4139)
+    · MEDIA   gallerys[2]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/4-reefer.png (id=4132)
+    · MEDIA   gallerys[3]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/2-cross-borader.png (id=4130)
+    · MEDIA   gallerys[4]                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/03/1-sea-freight.png (id=4129)

@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Global styles. Colours and the scrollbar come from the recovered Additional
+ * CSS (recovery/css/additional_css_avista.css); type scale and spacing match the
+ * computed styles of the staging site.
+ */
+
+@layer base {
+  :root {
+    --brand-dark: #002eaf;
+    --brand: #244bdd;
+    --brand-main: #3361e5;
+    --brand-light: #5fa3ff;
+    --brand-soft: #d0e6fc;
+    --accent-yellow: #ffc200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-black antialiased;
+    line-height: 1.6;
+  }
+
+  html[lang='ar'] body {
+    line-height: 1.8;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium text-heading;
+    text-wrap: balance;
+  }
+
+  /* Arabic doesn't want the tight Latin tracking. */
+  html[lang='ar'] * {
+    letter-spacing: 0 !important;
+  }
+
+  /* Custom scrollbar, recovered verbatim. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3361e5 #0e1220;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0e1220;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4f7cff, #3361e5);
+    border-radius: 10px;
+  }
+
+  ::selection {
+    background: var(--brand-main);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-main);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Body copy as the theme sets it: 16px / 26px, weight 500, slight negative tracking. */
+  .text-copy {
+    @apply text-base font-medium leading-[1.625] tracking-snug text-body;
+  }
+
+  /* Post bodies, as the theme's `.post-details-content` renders Gutenberg
+     blocks on staging: 18px/28px black text, paragraphs 30px padding + 16px
+     margin, 24px/700 headings in #101010, lists indented 24px with 7px rows. */
+  .prose-piris {
+    @apply text-[18px] leading-7 text-black;
+  }
+  .prose-piris h2 {
+    @apply mb-[27px] text-[30px] font-bold leading-[1.2] text-[#101010];
+  }
+  .prose-piris h3 {
+    @apply mb-[27px] text-2xl font-bold leading-[1.2] text-[#101010];
+  }
+  .prose-piris p {
+    @apply mb-[46px] last:mb-0;
+  }
+  .prose-piris a {
+    @apply text-brand-main underline underline-offset-2;
+  }
+  .prose-piris ul {
+    @apply mb-[25px] list-disc ps-6;
+  }
+  .prose-piris ol {
+    @apply mb-[25px] list-decimal ps-6;
+  }
+  .prose-piris li + li {
+    @apply pt-[7px];
+  }
+  .prose-piris strong {
+    @apply font-bold text-black;
+  }
+  .prose-piris hr {
+    @apply my-8 border-black/10;
+  }
+  .prose-piris img {
+    @apply h-auto w-full;
+  }
+  .prose-piris figure {
+    @apply mb-[18px];
+  }
+
+  /* Underlined form fields in the dark contact card (CF7 inputs on staging:
+     15px side padding, 1px white/20 underline, 16px/500 grey text, 15px below). */
+  .field-line {
+    @apply mb-[15px] block w-full border-0 border-b border-white/20 bg-transparent px-[15px] text-base font-medium leading-[1.625] tracking-snug text-[#919191] placeholder:text-white/40 focus:border-white focus:text-white focus:outline-none focus:ring-0;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Motion — keyframes and states copied from the Avista theme
+ * (avista-core.css + animate.css) as served by the staging site.
+ * --as-cube-1 = cubic-bezier(0.23, 1, 0.32, 1)
+ * ---------------------------------------------------------------------- */
+
+/* Elements wait hidden only when JS is running (html.js-motion is set inline in <head>). */
+.js-motion .wow:not(.wow-in):not(.wow-done) {
+  visibility: hidden;
+}
+.js-motion .split-pending {
+  visibility: hidden;
+}
+.wow-in {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-delay: var(--wow-delay, 0s);
+}
+.wow-in.wow-fadeInUp2 { animation-name: fadeInUp2; }
+.wow-in.wow-fadeInRight2 { animation-name: fadeInRight2; }
+.wow-in.wow-fadeInLeft2 { animation-name: fadeInLeft2; }
+.wow-in.wow-backInUp2 { animation-name: backInUp2; }
+.wow-in.wow-slideInRight2 { animation-name: slideInRight2; }
+.wow-in.wow-zoomIn { animation-name: zoomIn; }
+.wow-in.wow-bounceInUp { animation-name: bounceInUp; animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+.wow-in.wow-fadeIn { animation-name: fadeIn; }
+/* Horizontal marquees in RTL: the track is anchored to the right edge, so the
+   LTR keyframes (move left by half) would slide it out and leave blank space.
+   Mirror them so the loop runs toward the reading direction's end instead. */
+[dir='rtl'] .animate-marquee,
+[dir='rtl'] .animate-marquee-slow { animation-name: marqueeXRtl; }
+[dir='rtl'] .animate-marquee-reverse { animation-name: marqueeXRtlReverse; }
+@keyframes marqueeXRtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+@keyframes marqueeXRtlReverse {
+  0% { transform: translateX(50%); }
+  100% { transform: translateX(0); }
+}
+
+[dir='rtl'] .wow-in.wow-fadeInRight2 { animation-name: fadeInLeft2; }
+[dir='rtl'] .wow-in.wow-fadeInLeft2 { animation-name: fadeInRight2; }
+
+@keyframes fadeInUp2 {
+  0% { opacity: 0; transform: translateY(30px); filter: blur(3px); }
+  100% { transform: translateY(0); filter: blur(0); }
+}
+@keyframes fadeInRight2 {
+  0% { opacity: 0; transform: translateX(50px); filter: blur(3px); }
+  100% { transform: translateX(0); filter: blur(0); }
+}
+@keyframes fadeInLeft2 {
+  0% { opacity: 0; transform: translateX(-50px); filter: blur(3px); }
+  100% { transform: translateX(0); filter: blur(0); }
+}
+@keyframes backInUp2 {
+  0% { transform: translateY(1200px) scale(0.7); opacity: 0.7; }
+  80% { transform: translateY(0) scale(0.7); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes slideInRight2 {
+  0% { opacity: 0; transform: translateX(200px); }
+  100% { transform: translateX(0); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+  50% { opacity: 1; }
+}
+@keyframes bounceInUp {
+  0% { opacity: 0; transform: translateY(2000px); }
+  60% { opacity: 1; transform: translateY(-30px); }
+  80% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Preloader letters: `bounce 0.8s cubic-bezier(.165,.84,.44,1) infinite alternate`, 0.05s apart. */
+.preloader-letter {
+  animation: preloaderBounce 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate;
+}
+@keyframes preloaderBounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-1em); }
+}
+
+/* Hero CTA card: two blurred colour blobs bobbing behind it (shakeY2 6s). */
+@keyframes shakeY2 {
+  from, to { transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate3d(0, -10px, 0); }
+  20%, 40%, 60%, 80% { transform: translate3d(0, 10px, 0); }
+}
+.hero-cta-blobs::before,
+.hero-cta-blobs::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  filter: blur(51px);
+  opacity: 0.9;
+  animation: shakeY2 6s linear infinite;
+}
+.hero-cta-blobs::after { top: 23%; right: -5%; background: #0064ed; animation-delay: 2s; }
+.hero-cta-blobs::before { bottom: 2%; left: 1%; background: #244bdd; }
+
+/* FAQ awards: laurels sway (h3partnerLeaf 3s), colour glow spins (asFaqsColor 5s). */
+@keyframes leafSway {
+  0%, 100% { transform-origin: 50% 100%; transform: skewX(-5deg); }
+  50% { transform-origin: 50% 100%; transform: skewX(5deg); }
+}
+.leaf-sway { animation: leafSway 3s linear infinite; }
+.leaf-sway-late { animation: leafSway 3s linear 2s infinite; }
+@keyframes glowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.glow-spin { animation: glowSpin 5s linear infinite; }
+
+/* "Go Down" cue: bounce2 2s. */
+@keyframes bounce2 {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-7px); }
+}
+.bounce2 { animation: bounce2 2s linear infinite; }
+
+/* Service "Why Choose Us" icons swing on hover (animate.css swing). */
+@keyframes swing {
+  20% { transform: rotate3d(0, 0, 1, 15deg); }
+  40% { transform: rotate3d(0, 0, 1, -10deg); }
+  60% { transform: rotate3d(0, 0, 1, 5deg); }
+  80% { transform: rotate3d(0, 0, 1, -5deg); }
+  to { transform: rotate3d(0, 0, 1, 0deg); }
+}
+.group:hover .hover-swing { transform-origin: top center; animation: swing 1s; }
+
+/* CEO cards: icon rubberBand on hover. */
+@keyframes rubberBand {
+  from, to { transform: scale3d(1, 1, 1); }
+  30% { transform: scale3d(1.25, 0.75, 1); }
+  40% { transform: scale3d(0.75, 1.25, 1); }
+  50% { transform: scale3d(1.15, 0.85, 1); }
+  65% { transform: scale3d(0.95, 1.05, 1); }
+  75% { transform: scale3d(1.05, 0.95, 1); }
+}
+.group:hover .hover-rubber { animation: rubberBand 1s; }
+
+/* `.wa_add_class` clip reveal (about-4 growth image): wipes in over 2s. */
+.clip-reveal { clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); transition: clip-path 2s cubic-bezier(0.23, 1, 0.32, 1); }
+.clip-reveal.wow-in,
+.clip-reveal.wow-done { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); animation: none; }
+[dir='rtl'] .clip-reveal { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+[dir='rtl'] .clip-reveal.wow-in,
+[dir='rtl'] .clip-reveal.wow-done { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+
+/* SplitText helpers */
+.split-char,
+.split-word { display: inline-block; }
+
+@layer utilities {
+  .ease-cube { transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* animate.css flash — the contact block's status dot */
+@keyframes flash {
+  from, 50%, to { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+.flash-dot { animation: flash 3s linear infinite; }

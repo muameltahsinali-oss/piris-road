@@ -1,0 +1,22 @@
+====================================================================================================
+PAGE 2141 — Faq H_1 section   (type=elementor_library status=publish modified=2026-01-12 14:16:30)
+====================================================================================================
+container [1c790c7]
+  tx_faq [924fed3]
+    · TEXT    sub_title                          Sub Title
+    · TEXT    title                              Heading Title
+    · TEXT    description                        The opportunity to work abroad is a popular prospect, one
+    · TEXT    faq_lists[0].title                 What logistics services does Piris Road provide?
+    · TEXT    faq_lists[0].content               We provide full-spectrum logistics and freight forwarding services including sea freight (FCL and LCL), air freight, domestic and cross-border road transport, cold chain logistics, warehousing, customs clearance, and project cargo handling. All services are integrated into end-to-end supply chain solutions designed for commercial, industrial, and government clients.
+    · TEXT    faq_lists[1].title                 Do you provide door-to-door delivery services?
+    · TEXT    faq_lists[1].content               Yes. We manage door-to-door logistics solutions that include pickup at origin, international transportation, customs clearance, and final delivery to the destination address. This service is available across multiple transport modes depending on cargo type and delivery timelines.
+    · TEXT    faq_lists[2].title                 Can you handle customs clearance and documentation?
+    · TEXT    faq_lists[2].content               Yes. Our customs brokerage team manages all import and export documentation, tariff classification, regulatory approvals, and coordination with customs authorities to ensure compliant and efficient cargo clearance at ports, airports, and border crossings.
+    · TEXT    faq_lists[3].title                 Do you provide services for sensitive or regulated cargo?
+    · TEXT    faq_lists[3].content               Yes. We specialize in handling regulated cargo such as pharmaceuticals, medical equipment, oil and gas materials, and high-value industrial equipment. Our operations follow strict safety, temperature-control, and compliance procedures to meet industry-specific regulations.
+    · TEXT    faq_lists[4].title                 How do you ensure shipment safety and cargo security?
+    · TEXT    faq_lists[4].content               We apply strict handling procedures, secure transport equipment, approved carrier networks, and continuous monitoring systems. Our operations follow international safety standards and risk management protocols to minimize cargo damage, theft, and transit delays.
+    · TEXT    newsletter_title                   Contact Info
+    · TEXT    newsletter_description             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    · TEXT    button_text                        Button Text
+    · TEXT    newsletter_subtitle                Subscribe to our newsletter

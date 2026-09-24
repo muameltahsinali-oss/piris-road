@@ -1,0 +1,51 @@
+====================================================================================================
+PAGE 3510 — Single service template   (type=elementor_library status=publish modified=2026-01-11 14:29:20)
+====================================================================================================
+container [1ba77bae]  {dir=row}
+  container [2f78eaea]
+    image [55a81b2b]  {_css_classes=w-100}
+      · MEDIA   image                              https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p4-img-1.webp (id=2302)
+    heading [72b0763a]
+      · TEXT    title                              About This Service
+    theme-post-excerpt [1023cc0f]
+    gallery [3197e9e0]
+      · TEXT    galleries[0].gallery_title         New Gallery
+      · TEXT    show_all_galleries_label           All
+    heading [6d42dc29]
+      · TEXT    title                              Why Choice Us
+    tx_service_section [1299baca]  {design_style=style_6}
+      · TEXT    sub_title                          Work Process
+      · TEXT    title                              Streamlined processes delivering exceptional digital results.
+      · TEXT    description                        We provide comprehensive digital services, including branding, web design, marketing strategies, and innovative solutions for business growth.
+      · TEXT    big_title                          Big Title
+      · TEXT    big_title_2                        Title 2
+      · MEDIA   service_slide_boxs[0].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-1.svg (id=2256)
+      · TEXT    service_slide_boxs[0].sub_title    Sub Title
+      · TEXT    service_slide_boxs[0].title        Discover
+      · TEXT    service_slide_boxs[0].description  In the Discover phase, we explore client goals, audience insights, and market opportunities to define strategic direction.
+      · TEXT    service_slide_boxs[0].button_text  Button Text
+      · TEXT    service_slide_boxs[0].feature_text Feature Text
+      · MEDIA   service_slide_boxs[0].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/smart-schedule-control/
+      · MEDIA   service_slide_boxs[1].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-2.svg (id=2260)
+      · TEXT    service_slide_boxs[1].sub_title    Sub Title
+      · TEXT    service_slide_boxs[1].title        Strategize
+      · TEXT    service_slide_boxs[1].description  During the Strategize phase, we create tailored plans, combining creativity & data to achieve measure able business results.
+      · TEXT    service_slide_boxs[1].button_text  Button Text
+      · TEXT    service_slide_boxs[1].feature_text Feature Text
+      · MEDIA   service_slide_boxs[1].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/smart-schedule-control/
+      · MEDIA   service_slide_boxs[2].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-2.svg (id=2260)
+      · TEXT    service_slide_boxs[2].sub_title    Sub Title
+      · TEXT    service_slide_boxs[2].title        Design & Develop
+      · TEXT    service_slide_boxs[2].description  In the Design & Develop phase, we craft visually engaging, functional digital solutions that align with business objectives.
+      · TEXT    service_slide_boxs[2].button_text  Button Text
+      · TEXT    service_slide_boxs[2].feature_text Feature Text
+      · MEDIA   service_slide_boxs[2].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/smart-schedule-control/
+      · MEDIA   service_slide_boxs[3].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-4.svg (id=2262)
+      · TEXT    service_slide_boxs[3].sub_title    Sub Title
+      · TEXT    service_slide_boxs[3].title        Launch & Optimize
+      · TEXT    service_slide_boxs[3].description  During Launch & Optimize, we implement solutions, monitor performance, refine strategies for continuous improvement.
+      · TEXT    service_slide_boxs[3].button_text  Button Text
+      · TEXT    service_slide_boxs[3].feature_text Feature Text
+      · MEDIA   service_slide_boxs[3].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/smart-schedule-control/
+      · TEXT    button_text                        Button Text
+      · TEXT    info_box_title                     Info Box Title

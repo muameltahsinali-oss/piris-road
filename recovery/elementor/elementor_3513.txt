@@ -1,0 +1,77 @@
+====================================================================================================
+PAGE 3513 — Single Page tmpl (services singular)   (type=elementor_library status=publish modified=2026-01-31 16:27:27)
+====================================================================================================
+container [90cbaee]  {dir=row}
+  container [17c5cfe7]
+    image [28b67409]  {_css_classes=w-100}
+      · MEDIA   image                              https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p4-img-1.webp (id=2302)
+    heading [644be468]
+      · TEXT    title                              About This Service
+    theme-post-content [d814ee3]
+    gallery [3c30b94d]
+      · TEXT    galleries[0].gallery_title         New Gallery
+      · TEXT    show_all_galleries_label           All
+    tx_service_section [7aea51b]  {design_style=style_6}
+      · TEXT    sub_title                          Why Choice Us
+      · TEXT    title                              Streamlined processes delivering exceptional digital results.
+      · TEXT    description                        We provide comprehensive digital services, including branding, web design, marketing strategies, and innovative solutions for business growth.
+      · TEXT    big_title                          Big Title
+      · TEXT    big_title_2                        Title 2
+      · MEDIA   service_slide_boxs[0].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-1.svg (id=2256)
+      · TEXT    service_slide_boxs[0].sub_title    Sub Title
+      · TEXT    service_slide_boxs[0].title        Discover
+      · TEXT    service_slide_boxs[0].description  In the Discover phase, we explore client goals, audience insights, and market opportunities to define strategic direction.
+      · TEXT    service_slide_boxs[0].button_text  Button Text
+      · TEXT    service_slide_boxs[0].feature_text Feature Text
+      · MEDIA   service_slide_boxs[1].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-2.svg (id=2260)
+      · TEXT    service_slide_boxs[1].sub_title    Sub Title
+      · TEXT    service_slide_boxs[1].title        Strategize
+      · TEXT    service_slide_boxs[1].description  During the Strategize phase, we create tailored plans, combining creativity & data to achieve measure able business results.
+      · TEXT    service_slide_boxs[1].button_text  Button Text
+      · TEXT    service_slide_boxs[1].feature_text Feature Text
+      · MEDIA   service_slide_boxs[2].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-2.svg (id=2260)
+      · TEXT    service_slide_boxs[2].sub_title    Sub Title
+      · TEXT    service_slide_boxs[2].title        Design & Develop
+      · TEXT    service_slide_boxs[2].description  In the Design & Develop phase, we craft visually engaging, functional digital solutions that align with business objectives.
+      · TEXT    service_slide_boxs[2].button_text  Button Text
+      · TEXT    service_slide_boxs[2].feature_text Feature Text
+      · MEDIA   service_slide_boxs[3].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/p2-icon-4.svg (id=2262)
+      · TEXT    service_slide_boxs[3].sub_title    Sub Title
+      · TEXT    service_slide_boxs[3].title        Launch & Optimize
+      · TEXT    service_slide_boxs[3].description  During Launch & Optimize, we implement solutions, monitor performance, refine strategies for continuous improvement.
+      · TEXT    service_slide_boxs[3].button_text  Button Text
+      · TEXT    service_slide_boxs[3].feature_text Feature Text
+      · TEXT    button_text                        Button Text
+      · TEXT    info_box_title                     Info Box Title
+container [7548383]
+  tx_cta [bedb2cc]  {design_style=style_2}
+    · TEXT    sub_title                          Need more assistance?
+    · TEXT    title                              Heading Title
+    · TEXT    description                        Driving Growth Through Logistics Excellence
+    · TEXT    button_text                        Button Text
+    · TEXT    button_2_text                      Button 2 Text
+    · TEXT    video_text                         Watch Video
+    · TEXT    tags[0].tag_name                   Tag Name
+    · TEXT    scroll_text                        Scroll Down
+    · TEXT    count_title                        Years of experiences of these industries!
+    · TEXT    author_title_1                     Need more assistance?
+    · TEXT    author_title_2                     Book a personalized call
+    · TEXT    author_button_text                 Get a Qoute
+    · MEDIA   author_button_link                 https://aquamarine-gnat-712272.hostingersite.com/elementor-page-3821/
+    · TEXT    enable_author_button_icon          yes
+    · MEDIA   author_button_icon_1.value         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · MEDIA   author_image                       https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Untitled-design-11.svg (id=3734)
+    · URL     author_info_2                      <p>Hi <img class="alignnone wp-image-2148" src="https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/hy-icon-300x300.gif" alt="" width="79" height="79" /><img src="assets/img/icon/hy-icon.gif" alt="" /> I’m Lisa, Customer Manager</p>
+    · TEXT    info_title                         Piris Road
+    · TEXT    info_button_text                   Get started
+    · MEDIA   info_button_link                   https://aquamarine-gnat-712272.hostingersite.com/contact-us/
+    · TEXT    enable_info_button_icon            yes
+    · TEXT    info_button_icon_1.value           flaticon flaticon-dot-arrow-1
+    · TEXT    info_button_icon_2.value           flaticon flaticon-next
+    · TEXT    form_title                         Response time: 1 hours
+    · TEXT    form_title_2                       Driving Growth Through Logistics Excellence
+    · TEXT    list_items[0].info_label           Info Text
+    · MEDIA   author_info_middle_image           https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/hy-icon.gif (id=2148)
+container [86d91b9]  {dir=column}
+  shortcode [055cd48]
+    · RAW     shortcode                          [services_nav]

@@ -1,0 +1,61 @@
+====================================================================================================
+PAGE 29 — Contact us   (type=page status=publish modified=2026-03-08 16:27:41)
+====================================================================================================
+container [195d6cd]
+  tx_cta [cdeba43]  {design_style=style_2}
+    · TEXT    sub_title                          Need more assistance?
+    · TEXT    title                              Heading Title
+    · TEXT    description                        Driving Growth Through Logistics Excellence
+    · TEXT    button_text                        Button Text
+    · TEXT    button_2_text                      Button 2 Text
+    · TEXT    video_text                         Watch Video
+    · TEXT    tags[0].tag_name                   Tag Name
+    · TEXT    scroll_text                        Scroll Down
+    · TEXT    count_title                        Years of experiences of these industries!
+    · TEXT    author_title_1                     Need more assistance?
+    · TEXT    author_title_2                     Book a personalized call
+    · TEXT    author_button_text                 Get a Qoute
+    · MEDIA   author_button_link                 https://aquamarine-gnat-712272.hostingersite.com/elementor-page-3821/
+    · TEXT    enable_author_button_icon          yes
+    · MEDIA   author_button_icon_1.value         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · MEDIA   author_image                       https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Untitled-design-11.svg (id=3734)
+    · URL     author_info_2                      <p>Hi <img class="alignnone wp-image-2148" src="https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/hy-icon-300x300.gif" alt="" width="79" height="79" /><img src="assets/img/icon/hy-icon.gif" alt="" /> I’m Lisa, Customer Manager</p>
+    · TEXT    info_title                         Piris Road
+    · TEXT    info_button_text                   Get started
+    · MEDIA   info_button_link                   https://aquamarine-gnat-712272.hostingersite.com/contact-us/
+    · TEXT    enable_info_button_icon            yes
+    · TEXT    info_button_icon_1.value           flaticon flaticon-dot-arrow-1
+    · TEXT    info_button_icon_2.value           flaticon flaticon-next
+    · TEXT    form_title                         Response time: 1 hours
+    · TEXT    form_title_2                       Driving Growth Through Logistics Excellence
+    · TEXT    list_items[0].info_label           Info Text
+    · MEDIA   author_info_middle_image           https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/hy-icon.gif (id=2148)
+container [d3972a3]  {layout=full_width, dir=column}
+  container [54269473]  {layout=full_width, dir=row}
+    container [923740f]  {dir=column}
+      divider [15071c8d]
+        · TEXT    text                               Divider
+      heading [40f88b6d]
+        · TEXT    title                              Find us Here
+      icon-list [18fae24c]
+        · TEXT    icon_list[0].text                  Cavalli Tower (B12-07), Gulan St. Waziran, Erbil, Iraq
+    container [771f1d64]  {dir=column}
+      divider [549cf0bc]
+        · TEXT    text                               Divider
+      heading [2143ada2]
+        · TEXT    title                              Get In touch
+      icon-list [134599e]
+        · TEXT    icon_list[0].text                  +9647870008888
+        · TEXT    icon_list[1].text                  +9647503050108
+        · TEXT    icon_list[2].text                  info@pirisroad.iq
+    container [5ae16683]  {dir=column}
+      divider [6eed2d0c]
+        · TEXT    text                               Divider
+      heading [7e7dab52]
+        · TEXT    title                              Training Hours
+      icon-list [5d3690c1]
+        · TEXT    icon_list[0].text                  8 AM - 4 PM
+        · TEXT    icon_list[1].text                  (Everyday Except Friday & Saturday)
+container [cc1a38d]  {dir=column}
+  google_maps [f1d9199]
+    · TEXT    address                            baghdad

@@ -1,0 +1,250 @@
+====================================================================================================
+PAGE 23 — About   (type=page status=publish modified=2026-03-08 16:30:23)
+====================================================================================================
+container [277153f]  {dir=column}
+  container [f1acc78]
+    tx_about [dcba5be]
+      · TEXT    sub_title                          About US
+      · TEXT    title                              A Strategic Logistics Partner Built for Demanding Markets
+      · TEXT    description                        Piris Road combines strong local operational capabilities with global logistics standards to deliver scalable, secure, and efficient supply chain solutions. Our team understands the regulatory, geographic, and infrastructure challenges of regional trade and provides proactive logistics planning to minimize delays and optimize delivery performance. We work closely with clients to design customized  …
+      · TEXT    title_2                            Our Excellence
+      · MEDIA   image_1                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/a1-shape-1.webp (id=1999)
+      · MEDIA   image_2                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/a1-shape-2.webp (id=2000)
+      · TEXT    video_sub_title                    Watch Our Video
+      · TEXT    video_text                         Watch Video
+      · TEXT    feature_lists[0].feature_text      Feature Text
+      · TEXT    feature_heading                    Our Values
+      · TEXT    top_text                           Top Text
+      · TEXT    bottom_text                        Bottom Text
+      · TEXT    feature_boxs[0].feature_title      Operational Excellence
+      · TEXT    feature_boxs[0].feature_text       We apply structured workflows, advanced planning, and strict quality controls to ensure reliable performance across every shipment. Our operations are built to deliver consistency, safety, and measurable results in demanding supply chain environments.
+      · TEXT    feature_boxs[1].feature_title      Compliance and Safety
+      · TEXT    feature_boxs[1].feature_text       Compliance and Safety
+      · TEXT    feature_boxs[2].feature_title      Industry-Focused Solutions
+      · TEXT    feature_boxs[2].feature_text       We design logistics strategies specifically for Oil and Gas, Medical, Government, Defense, and Technology sectors, ensuring transport solutions align with industry regulations and operational demands.
+      · TEXT    button_text                        Button Text
+      · TEXT    exp_title                          Years of Experience
+      · TEXT    exp_text                           Years of Experience
+      · TEXT    contact_label                      Contact Us
+      · TEXT    client_title                       Happy Clients
+      · TEXT    count_title                        Happy Clients
+      · TEXT    tags[0].tag_text                   Tag Text
+      · TEXT    info_title_1                       Info Title 1
+      · TEXT    info_description_1                 Info Description 1
+      · TEXT    info_2_title_1                     Info Title 1
+      · TEXT    info_2_description_1               Info Description 1
+      · TEXT    info_3_title_1                     Info Title 1
+      · TEXT    info_3_description_1               Info Description 1
+      · TEXT    rating_number                      4.9 Rating
+      · TEXT    rating_prefix                      /5
+      · TEXT    rating_title                       With Certifications, Standards, and Quality Commitment
+      · TEXT    gallery_heading                    Our Gallery
+      · MEDIA   gallery[0]                         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/927_iso9001_logo.jpeg (id=3611)
+      · MEDIA   gallery[1]                         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/What-is-an-ISO-14001-Environmental-Management-System.webp (id=3612)
+      · MEDIA   gallery[2]                         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/What-is-an-ISO-45001-Occupational-Health-and-Safety-Management-System.webp (id=3613)
+      · MEDIA   gallery[3]                         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/e2d.png (id=3875)
+      · TEXT    count_disc                         Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      · TEXT    author_name                        Arnold Vain
+  container [7b561d8]
+    tx_team_lists [a6ddbbf]
+      · TEXT    sub_title                          Piris Road
+      · TEXT    title                              Driving Growth Through Logistics Excellence
+      · TEXT    description                        The opportunity to work abroad is a popular prospect, one
+      · MEDIA   team_members[0].team_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/4-1.svg (id=3640)
+      · TEXT    team_members[0].name               Oil and Gas Logistics
+      · TEXT    team_members[0].social_links[0].so fab fa-linkedin-in
+      · MEDIA   team_members[0].social_links[0].so #0
+      · TEXT    team_members[0].social_links[1].so fab fa-instagram
+      · MEDIA   team_members[0].social_links[1].so #0
+      · TEXT    team_members[0].social_links[2].so fab fa-x-twitter
+      · MEDIA   team_members[0].social_links[2].so #0
+      · MEDIA   team_members[1].team_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/6.svg (id=3649)
+      · TEXT    team_members[1].name               Technology and Telecom Logistics
+      · TEXT    team_members[1].social_links[0].so fab fa-linkedin-in
+      · MEDIA   team_members[1].social_links[0].so #0
+      · TEXT    team_members[1].social_links[1].so fab fa-instagram
+      · MEDIA   team_members[1].social_links[1].so #0
+      · TEXT    team_members[1].social_links[2].so fab fa-x-twitter
+      · MEDIA   team_members[1].social_links[2].so #0
+      · MEDIA   team_members[2].team_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/2-1.svg (id=3635)
+      · TEXT    team_members[2].name               Government and Public Sector Logistics
+      · MEDIA   team_members[3].team_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/3-1.svg (id=3636)
+      · TEXT    team_members[3].name               Defense and Secure Transport
+      · TEXT    team_members[3].social_links[0].so fab fa-linkedin-in
+      · MEDIA   team_members[3].social_links[0].so #0
+      · TEXT    team_members[3].social_links[1].so fab fa-instagram
+      · MEDIA   team_members[3].social_links[1].so #0
+      · TEXT    team_members[3].social_links[2].so fab fa-x-twitter
+      · MEDIA   team_members[3].social_links[2].so #0
+      · MEDIA   team_members[4].team_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Untitlhl.ed-design.png (id=3779)
+      · TEXT    team_members[4].name               Commercial and Industrial Logistics
+      · TEXT    team_members[4].social_links[0].so fab fa-linkedin-in
+      · MEDIA   team_members[4].social_links[0].so #0
+      · TEXT    team_members[4].social_links[1].so fab fa-instagram
+      · MEDIA   team_members[4].social_links[1].so #0
+      · TEXT    team_members[4].social_links[2].so fab fa-x-twitter
+      · MEDIA   team_members[4].social_links[2].so #0
+      · MEDIA   team_members[5].team_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/5-1.svg (id=3648)
+      · TEXT    team_members[5].name               Medical and Pharmaceutical Logistics
+      · TEXT    team_members[5].social_links[0].so fab fa-linkedin-in
+      · MEDIA   team_members[5].social_links[0].so #0
+      · TEXT    team_members[5].social_links[1].so fab fa-instagram
+      · MEDIA   team_members[5].social_links[1].so #0
+      · TEXT    team_members[5].social_links[2].so fab fa-x-twitter
+      · MEDIA   team_members[5].social_links[2].so #0
+      · TEXT    button_text                        Button Text
+      · TEXT    big_title                          Big Title
+      · TEXT    left_title                         Left Title
+      · TEXT    right_title                        Right Title
+container [e12c096]
+  heading [64f2f81]
+    · TEXT    title                              Our Story
+  tx_service_section [bda70e0]  {design_style=style_3}
+    · TEXT    sub_title                          [Process]
+    · TEXT    title                              Our Working <br> process
+    · TEXT    description                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Labore et dolore magna aliqua. Ut enim ad m
+    · MEDIA   image_1                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-card-shape-1.webp (id=2122)
+    · MEDIA   service_slide_boxs[0].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/p1-img-1.webp (id=2069)
+    · MEDIA   service_slide_boxs[0].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[0].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[0].title        Company Foundation
+    · TEXT    service_slide_boxs[0].description  Founded to provide structured and compliant freight services across regional trade routes.
+    · MEDIA   service_slide_boxs[0].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/smart-schedule-control/
+    · TEXT    service_slide_boxs[0].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[0].enable_tags  yes
+    · TEXT    service_slide_boxs[0].tags[0].tag_ Web Design
+    · MEDIA   service_slide_boxs[0].tags[0].tag_ #
+    · TEXT    service_slide_boxs[0].tags[1].tag_ UI/UX Design
+    · MEDIA   service_slide_boxs[0].tags[1].tag_ #
+    · MEDIA   service_slide_boxs[0].button_icon. https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · TEXT    service_slide_boxs[0].icon.value   flaticon flaticon-star
+    · MEDIA   service_slide_boxs[1].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/p1-img-1.webp (id=2069)
+    · MEDIA   service_slide_boxs[1].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[1].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[1].title        Expansion of Multimodal Services
+    · TEXT    service_slide_boxs[1].description  Integration of air, sea, and road transport capabilities.
+    · MEDIA   service_slide_boxs[1].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/smart-schedule-control/
+    · TEXT    service_slide_boxs[1].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[1].enable_tags  yes
+    · TEXT    service_slide_boxs[1].tags[0].tag_ Web Design
+    · MEDIA   service_slide_boxs[1].tags[0].tag_ #
+    · TEXT    service_slide_boxs[1].tags[1].tag_ UI/UX Design
+    · MEDIA   service_slide_boxs[1].tags[1].tag_ #
+    · MEDIA   service_slide_boxs[1].button_icon. https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · TEXT    service_slide_boxs[1].icon.value   flaticon flaticon-star
+    · MEDIA   service_slide_boxs[2].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/p1-img-1.webp (id=2069)
+    · MEDIA   service_slide_boxs[2].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[2].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[2].title        Industry Certifications and Network Memberships
+    · TEXT    service_slide_boxs[2].description  Strengthened compliance framework and international connectivity.
+    · MEDIA   service_slide_boxs[2].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/smart-schedule-control/
+    · TEXT    service_slide_boxs[2].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[2].enable_tags  yes
+    · TEXT    service_slide_boxs[2].tags[0].tag_ Web Design
+    · MEDIA   service_slide_boxs[2].tags[0].tag_ #
+    · TEXT    service_slide_boxs[2].tags[1].tag_ UI/UX Design
+    · MEDIA   service_slide_boxs[2].tags[1].tag_ #
+    · MEDIA   service_slide_boxs[2].button_icon. https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · TEXT    service_slide_boxs[2].icon.value   flaticon flaticon-star
+    · TEXT    button_text                        More Services
+    · TEXT    info_box_title                     Projects
+    · MEDIA   button_link                        https://aquamarine-gnat-712272.hostingersite.com/our-services/
+    · TEXT    button_icon.value                  flaticon flaticon-dot-arrow-1
+    · TEXT    button_icon_2.value                flaticon flaticon-next
+    · TEXT    big_title_2                        Title 2
+container [12b857f]
+  tx_about [2f8d7a9]  {design_style=style_5}
+    · TEXT    sub_title                          Ceo Message
+    · TEXT    title                              Strengthened compliance framework and international connectivity.
+    · TEXT    description                        <b>“Road</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Labore et dolore magna aliqua. Ut enim ad m  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Labore et dolore magna aliqua. Ut enim ad m
+    · TEXT    title_2                            Heading Title 2
+    · TEXT    author_name                        Nyaz
+    · TEXT    feature_lists[0].feature_text      Feature Text
+    · TEXT    feature_heading                    Feature Heading
+    · MEDIA   feature_boxs[0].list_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/a3-icon-1.webp (id=2439)
+    · TEXT    feature_boxs[0].feature_title      Our Vision
+    · TEXT    feature_boxs[0].feature_text       To become Iraq’s most reliable and trusted logistics partner by setting new standards in operational efficiency, safety, service quality, and supply chain transparency, while continuously expanding our regional and international capabilities.
+    · MEDIA   feature_boxs[1].list_image         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/a3-icon-2.webp (id=2440)
+    · TEXT    feature_boxs[1].feature_title      Our Mission
+    · TEXT    feature_boxs[1].feature_text       To deliver end-to-end logistics solutions that simplify trade, minimize operational risk, and ensure full regulatory compliance across every shipment, while providing responsive, transparent, and cost-effective services to our clients.
+    · TEXT    button_text                        LET'S GET STARTED
+    · TEXT    exp_title                          Years of Experience
+    · TEXT    exp_text                           Years of Experience
+    · TEXT    contact_label                      Contact Us
+    · TEXT    client_title                       Happy Clients
+    · TEXT    count_title                        Happy Clients
+    · TEXT    count_disc                         Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    · TEXT    tags[0].tag_text                   Tag Text
+    · TEXT    info_title_1                       Info Title 1
+    · TEXT    info_description_1                 Info Description 1
+    · TEXT    info_2_title_1                     Info Title 1
+    · TEXT    info_2_description_1               Info Description 1
+    · TEXT    info_3_title_1                     Info Title 1
+    · TEXT    info_3_description_1               Info Description 1
+    · TEXT    rating_prefix                      /5
+    · TEXT    rating_title                       Average Rating
+    · TEXT    gallery_heading                    Our Gallery
+    · TEXT    social_links[0].social_icon.value  fab fa-x-twitter
+    · TEXT    social_links[1].social_icon.value  fab fa-instagram
+    · TEXT    social_links[2].social_icon.value  fab fa-linkedin-in
+    · MEDIA   button_link                        https://aquamarine-gnat-712272.hostingersite.com/contact-us/
+    · TEXT    enable_button_icon                 yes
+    · TEXT    button_icon.value                  far fa-arrow-right
+    · MEDIA   image_2                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/12/Untitled-design-213.png (id=3120)
+    · MEDIA   image_3                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/a3-illus-2.webp (id=2449)
+    · MEDIA   image_4                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/a3-illus-3.webp (id=2450)
+container [b0ec708]
+  tx_testimonial [b3d31c9]  {design_style=style_2}
+    · TEXT    sub_title                          Testimonial
+    · TEXT    title                              Client success stories that inspire trust and growth.
+    · TEXT    description                        The opportunity to work abroad is a popular prospect, one
+    · TEXT    big_title                          Testimonial
+    · TEXT    info_text                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+    · MEDIA   image_1                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/t1-marquee-shape.webp (id=2105)
+    · TEXT    testimonial_lists[0].title         John Doe
+    · MEDIA   testimonial_lists[0].author_image  https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/post3.jpg (id=3201)
+    · TEXT    testimonial_lists[0].quote_icon.va fas fa-quote-left
+    · TEXT    testimonial_lists[0].name          Someones Name
+    · TEXT    testimonial_lists[1].title         John Doe
+    · MEDIA   testimonial_lists[1].author_image  https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/post3.jpg (id=3201)
+    · TEXT    testimonial_lists[1].quote_icon.va fas fa-quote-left
+    · TEXT    testimonial_lists[1].name          Someones Name
+    · TEXT    testimonial_lists[2].title         John Doe
+    · MEDIA   testimonial_lists[2].author_image  https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/post3.jpg (id=3201)
+    · TEXT    testimonial_lists[2].quote_icon.va fas fa-quote-left
+    · TEXT    testimonial_lists[2].name          Someones Name
+    · TEXT    testimonial_lists[3].title         John Doe
+    · MEDIA   testimonial_lists[3].author_image  https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/post3.jpg (id=3201)
+    · TEXT    testimonial_lists[3].quote_icon.va fas fa-quote-left
+    · TEXT    testimonial_lists[3].name          Someones Name
+    · TEXT    name                               John Doe
+    · TEXT    button_text                        Button Text
+container [104b9ee]
+  tx_cta [3cdad9f]  {design_style=style_2}
+    · TEXT    sub_title                          Need more assistance?
+    · TEXT    title                              Heading Title
+    · TEXT    description                        Driving Growth Through Logistics Excellence
+    · TEXT    button_text                        Button Text
+    · TEXT    button_2_text                      Button 2 Text
+    · TEXT    video_text                         Watch Video
+    · TEXT    tags[0].tag_name                   Tag Name
+    · TEXT    scroll_text                        Scroll Down
+    · TEXT    count_title                        Years of experiences of these industries!
+    · TEXT    author_title_1                     Need more assistance?
+    · TEXT    author_title_2                     Book a personalized call
+    · TEXT    author_button_text                 Get a Qoute
+    · MEDIA   author_button_link                 https://aquamarine-gnat-712272.hostingersite.com/elementor-page-3821/
+    · TEXT    enable_author_button_icon          yes
+    · MEDIA   author_button_icon_1.value         https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · MEDIA   author_image                       https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Untitled-design-11.svg (id=3734)
+    · URL     author_info_2                      <p>Hi <img class="alignnone wp-image-2148" src="https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/hy-icon-300x300.gif" alt="" width="79" height="79" /><img src="assets/img/icon/hy-icon.gif" alt="" /> I’m Lisa, Customer Manager</p>
+    · TEXT    info_title                         Piris Road
+    · TEXT    info_button_text                   Get started
+    · MEDIA   info_button_link                   https://aquamarine-gnat-712272.hostingersite.com/contact-us/
+    · TEXT    enable_info_button_icon            yes
+    · TEXT    info_button_icon_1.value           flaticon flaticon-dot-arrow-1
+    · TEXT    info_button_icon_2.value           flaticon flaticon-next
+    · TEXT    form_title                         Response time: 1 hours
+    · TEXT    form_title_2                       Driving Growth Through Logistics Excellence
+    · TEXT    list_items[0].info_label           Info Text
+    · MEDIA   author_info_middle_image           https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/hy-icon.gif (id=2148)

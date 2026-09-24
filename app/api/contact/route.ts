@@ -1,0 +1,31 @@
+import { NextResponse } from 'next/server';
+import { contactSchema } from '@/lib/quote-schema';
+import { guardSubmission, sendEmail } from '@/lib/api-guard';
+import { siteConfig } from '@/content/site';
+
+/**
+ * Contact form from the "Need more assistance?" block.
+ * Same delivery setup as /api/quote: set CONTACT_RECIPIENT (defaults to the
+ * company inbox) and RESEND_API_KEY; without a key submissions are logged.
+ */
+export async function POST(request: Request) {
+  const { data, response } = await guardSubmission(request, contactSchema, { name: 'contact', limit: 5 });
+  if (response) return response;
+
+  const { name, email, message, newsletter } = data;
+  const text = `Name: ${name}\nEmail: ${email}\nNewsletter: ${newsletter ? 'yes' : 'no'}\n\n${message}`;
+
+  const sent = await sendEmail({
+    to: process.env.CONTACT_RECIPIENT ?? siteConfig.contact.emails.general,
+    subject: `Website enquiry — ${name}`,
+    text,
+    replyTo: email,
+  });
+
+  if (sent === null) {
+    console.info('[contact] no RESEND_API_KEY set; submission not emailed\n%s', text);
+    return NextResponse.json({ ok: true, delivered: false });
+  }
+  if (!sent) return NextResponse.json({ error: 'Delivery failed' }, { status: 502 });
+  return NextResponse.json({ ok: true, delivered: true });
+}

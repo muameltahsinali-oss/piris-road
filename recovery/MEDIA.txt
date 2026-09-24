@@ -1,0 +1,106 @@
+################################################################################################
+# MEDIA REFERENCED BY THE REAL PAGES: 89 distinct URLs
+################################################################################################
+OK  2025/10/a1-shape-1.webp                                                                          2068  <- 15:Home, 23:About
+OK  2025/10/a1-shape-2.webp                                                                          2172  <- 15:Home, 23:About
+OK  2025/10/cta1-hand-1.webp                                                                        33900  <- 15:Home
+OK  2025/10/cta1-hand-2.webp                                                                        36604  <- 15:Home
+OK  2025/10/faqs1-clr.webp                                                                          36730  <- 15:Home
+OK  2025/10/faqs1-illus-1.webp                                                                       6808  <- 15:Home
+OK  2025/10/faqs1-illus-2.webp                                                                       6302  <- 15:Home
+OK  2025/10/h1-bg-noise-1.gif                                                                      187573  <- 15:Home
+OK  2025/10/hy-icon.gif                                                                            294814  <- 23:About, 29:Contact us, 3513:Elementor Single Page #351
+OK  2025/10/p1-arrow.webp                                                                             824  <- 15:Home
+OK  2025/10/p1-cloud-2.webp                                                                          7618  <- 15:Home
+OK  2025/10/p1-cloud.webp                                                                           12584  <- 15:Home
+OK  2025/10/right-up.webp                                                                             354  <- 15:Home
+OK  2025/10/s1-img-1.webp                                                                            3864  <- 15:Home
+OK  2025/10/s1-logo-1.webp                                                                            934  <- 15:Home
+OK  2025/10/s1-logo-2.webp                                                                            854  <- 15:Home
+OK  2025/10/s1-logo-3.webp                                                                            816  <- 15:Home
+OK  2025/10/s1-logo-4.webp                                                                            840  <- 15:Home
+OK  2025/10/star-icon.webp                                                                            214  <- 15:Home
+OK  2025/10/star.webp                                                                                 266  <- 15:Home
+OK  2025/11/a3-icon-1.webp                                                                           1518  <- 23:About
+OK  2025/11/a3-icon-2.webp                                                                            834  <- 23:About
+OK  2025/11/a3-illus-2.webp                                                                         65374  <- 23:About
+OK  2025/11/a3-illus-3.webp                                                                          1880  <- 23:About
+OK  2025/11/a4-bg-shape.webp                                                                        12874  <- 25:Our Services
+OK  2025/11/logo-png-file-copy-scaled.png                                                          165051  <- 2582:Header 1
+OK  2025/11/logo-png-file-scaled.png                                                               188193  <- 2582:Header 1
+OK  2025/11/p2-icon-1.svg                                                                            2104  <- 3510:Single service, 3513:Elementor Single Page #351
+OK  2025/11/p2-icon-2.svg                                                                            1460  <- 3510:Single service, 3513:Elementor Single Page #351
+OK  2025/11/p2-icon-4.svg                                                                            7247  <- 3510:Single service, 3513:Elementor Single Page #351
+OK  2025/11/p4-img-1-300x200.webp                                                                   11616  <- 3510:Single service
+OK  2025/11/p4-img-1-600x400.webp                                                                   30798  <- 3510:Single service
+OK  2025/11/p4-img-1-768x512.webp                                                                   42634  <- 3510:Single service
+OK  2025/11/p4-img-1.webp                                                                           52062  <- 3510:Single service
+OK  2025/11/s1-card-img-1.webp                                                                      37326  <- 15:Home
+OK  2025/11/s1-card-img-2.webp                                                                      66174  <- 15:Home
+OK  2025/11/s1-card-img-3.webp                                                                      89514  <- 15:Home
+OK  2025/11/s1-card-img-4.webp                                                                      47076  <- 15:Home
+OK  2025/12/Untitled-design-213.png                                                                131504  <- 15:Home, 23:About
+OK  2025/12/Untitled-design-220-scaled.png                                                        2257487  <- 15:Home
+OK  2025/12/logo-icon-svg-file.svg                                                                   2375  <- theme_options
+OK  2026/01/1.png                                                                                  121215  <- 15:Home
+OK  2026/01/1.svg                                                                                 2036836  <- 15:Home
+OK  2026/01/2-1.svg                                                                               5541412  <- 15:Home, 23:About
+OK  2026/01/2.png                                                                                   62545  <- 15:Home
+OK  2026/01/3-1.svg                                                                               5267998  <- 15:Home, 23:About
+OK  2026/01/3.png                                                                                   35247  <- 15:Home
+OK  2026/01/4-1.svg                                                                               4847573  <- 15:Home, 23:About
+OK  2026/01/4.png                                                                                   42258  <- 15:Home
+OK  2026/01/5-1.svg                                                                               4080306  <- 15:Home, 23:About
+OK  2026/01/6.png                                                                                 3092878  <- 25:Our Services
+OK  2026/01/6.svg                                                                                 5132882  <- 15:Home, 23:About
+OK  2026/01/7.png                                                                                 2893627  <- 25:Our Services
+OK  2026/01/927_iso9001_logo.jpeg                                                                   68869  <- 15:Home, 23:About
+OK  2026/01/Sea-Freight-Solutions-FCL-LCL-Shipping.svg                                            4752487  <- 25:Our Services
+OK  2026/01/Untitled-design-11.png                                                                  11206  <- 15:Home
+OK  2026/01/Untitled-design-11.svg                                                                 127141  <- 23:About, 29:Contact us, 3513:Elementor Single Page #351, th
+OK  2026/01/Untitled-design-12.png                                                                2821489  <- 25:Our Services
+OK  2026/01/Untitled-design-223-scaled.png                                                        1106957  <- 15:Home
+OK  2026/01/Untitled-design-224-150x150.webp                                                         1694  <- theme_options
+OK  2026/01/Untitled-design-224-scaled.webp                                                         19768  <- theme_options
+OK  2026/01/Untitled-design-8-scaled.png                                                          2614993  <- 15:Home, 25:Our Services
+OK  2026/01/Untitled-design.svg                                                                   1005572  <- 25:Our Services
+OK  2026/01/Untitlhl.ed-design.png                                                                3196927  <- 15:Home, 23:About
+OK  2026/01/What-is-an-ISO-14001-Environmental-Management-System.webp                               39048  <- 15:Home, 23:About
+OK  2026/01/What-is-an-ISO-45001-Occupational-Health-and-Safety-Management-System.webp              12894  <- 15:Home, 23:About
+OK  2026/01/dwfwgre.svg                                                                           3108639  <- 25:Our Services
+OK  2026/01/e2d.png                                                                                 43811  <- 15:Home, 23:About
+OK  2026/01/effas.svg                                                                             4836540  <- 25:Our Services
+OK  2026/01/ihuf.svg                                                                              2069047  <- 25:Our Services
+OK  2026/01/image-1024x444.png                                                                     208768  <- 3898:Škoda Logo: What It Repres
+OK  2026/01/image.png                                                                              440462  <- 15:Home
+OK  2026/01/logo-png-file-1-scaled.png                                                             188193  <- 25:Our Services
+OK  2026/01/logo-png-file-2-scaled.png                                                             188193  <- 25:Our Services
+OK  2026/01/post3.jpg                                                                               25252  <- 23:About
+OK  2026/01/qawees.svg                                                                            4157130  <- 25:Our Services
+OK  2026/01/wfegrthyj.svg                                                                         5622770  <- 25:Our Services
+OK  2026/01/white-font-transparency-png-backgrounduse-for-black-background-scaled.png              195218  <- 15:Home, 2686:Footer 1
+OK  2026/01/yfftghv-1.svg                                                                         3663551  <- 25:Our Services
+OK  2026/03/1-sea-freight.png                                                                     1325065  <- 15:Home, 2582:Header 1
+OK  2026/03/2-cross-borader.png                                                                    924523  <- 15:Home, 2582:Header 1
+OK  2026/03/3-air-cargo.png                                                                       1283112  <- 15:Home
+OK  2026/03/4-reefer.png                                                                           960871  <- 15:Home, 2582:Header 1
+OK  2026/03/Untitled-design-223-scaled-1.webp                                                      361808  <- 15:Home
+OK  2026/03/left-pic.png                                                                          1289660  <- 15:Home, 2582:Header 1
+OK  2026/03/right-pic.png                                                                         1229280  <- 15:Home, 2582:Header 1
+OK  2026/03/row-1-column-1.png                                                                     634087  <- 15:Home
+OK  2026/03/row-2-column-1.png                                                                     852722  <- 15:Home
+OK  2026/03/row-3-column-1.png                                                                     986561  <- 15:Home
+
+
+SUMMARY: 89 present, 0 MISSING from archive
+
+
+=== attachment count in DB: 330 ===
+=== files on disk in uploads: 1708 ===
+
+=== SVG / logo assets present ===
+    2025/11/logo-3.svg
+    2025/11/logo-4.svg
+    2025/11/logo-5.svg
+    2025/12/black-font-svg-file.svg
+    2025/12/logo-icon-svg-file.svg

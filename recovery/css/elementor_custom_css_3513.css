@@ -1,0 +1,109 @@
+:root {
+    --blue-dark: #002EAF;
+    --blue-main: #244BDD;
+    --blue-light: #5FA3FF;
+    --blue-soft: #D0E6FC;
+    --accent-yellow: #FFC200;
+    --text-dark: #0b1c3d;
+}
+
+.service-navigation {
+    display: flex;
+    gap: 28px;
+    margin-top: 90px;
+    padding-top: 50px;
+    border-top: 1px solid var(--blue-soft);
+}
+
+.service-navigation a {
+    flex: 1;
+    position: relative;
+    padding: 28px 30px;
+    background: #fff;
+    border: 1px solid var(--blue-soft);
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.service-navigation a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        var(--blue-main),
+        var(--blue-dark)
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s ease;
+    z-index: 0;
+}
+
+.service-navigation a:hover::before {
+    transform: scaleX(1);
+}
+
+.service-navigation a * {
+    position: relative;
+    z-index: 1;
+}
+
+.service-prev {
+    text-align: left;
+}
+
+.service-next {
+    text-align: right;
+}
+
+.service-navigation small {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue-main);
+    margin-bottom: 8px;
+    transition: color 0.35s ease;
+}
+
+.service-navigation span {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.35s ease;
+}
+
+.service-navigation a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0;
+    background: var(--accent-yellow);
+    transition: width 0.35s ease;
+    z-index: 2;
+}
+
+.service-navigation a:hover::after {
+    width: 100%;
+}
+
+.service-navigation a:hover small,
+.service-navigation a:hover span {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .service-navigation {
+        flex-direction: column;
+    }
+
+    .service-next {
+        text-align: left;
+    }
+}

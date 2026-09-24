@@ -1,0 +1,182 @@
+====================================================================================================
+PAGE 25 — Our Services   (type=page status=publish modified=2026-03-08 13:42:30)
+====================================================================================================
+container [f3e87f1]
+  tx_service_section [705bc0e]  {design_style=style_2}
+    · TEXT    sub_title                          Services
+    · TEXT    big_title                          Our Services
+    · MEDIA   image_1                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/author1.png (id=3196)
+    · MEDIA   service_slide_boxs[0].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Sea-Freight-Solutions-FCL-LCL-Shipping.svg (id=3532)
+    · MEDIA   service_slide_boxs[0].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[0].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[0].sub_title    Sub Title
+    · TEXT    service_slide_boxs[0].title        Sea Freight Solutions
+    · TEXT    service_slide_boxs[0].description  Cost-effective international ocean freight solutions for full container and consolidated shipments with reliable global carrier networks.
+    · TEXT    service_slide_boxs[0].button_text  Button Text
+    · MEDIA   service_slide_boxs[0].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/sea-freight-solutions-fcl-lcl-shipping/
+    · TEXT    service_slide_boxs[0].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[0].enable_tags  yes
+    · TEXT    service_slide_boxs[0].tags[0].tag_ ocean freight forwarding
+    · MEDIA   service_slide_boxs[0].tags[0].tag_ #
+    · TEXT    service_slide_boxs[0].tags[1].tag_ FCL shipping
+    · MEDIA   service_slide_boxs[0].tags[1].tag_ #
+    · TEXT    service_slide_boxs[0].tags[2].tag_ LCL shipping
+    · MEDIA   service_slide_boxs[0].tags[2].tag_ #
+    · TEXT    service_slide_boxs[0].tags[3].tag_ container shipping
+    · MEDIA   service_slide_boxs[0].tags[3].tag_ #
+    · MEDIA   service_slide_boxs[1].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/yfftghv-1.svg (id=3540)
+    · MEDIA   service_slide_boxs[1].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[1].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[1].sub_title    Sub Title
+    · TEXT    service_slide_boxs[1].title        Air Freight and Time-Critical Cargo
+    · TEXT    service_slide_boxs[1].description  Fast and secure air cargo services for urgent, high-value, and time-sensitive international shipments.
+    · TEXT    service_slide_boxs[1].button_text  Button Text
+    · TEXT    service_slide_boxs[1].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[1].enable_tags  yes
+    · TEXT    service_slide_boxs[1].tags[0].tag_ air freight
+    · MEDIA   service_slide_boxs[1].tags[0].tag_ #
+    · TEXT    service_slide_boxs[1].tags[1].tag_ press cargo shipping
+    · MEDIA   service_slide_boxs[1].tags[1].tag_ #
+    · TEXT    service_slide_boxs[1].tags[2].tag_ international air cargo
+    · MEDIA   service_slide_boxs[1].tags[2].tag_ #
+    · TEXT    service_slide_boxs[1].tags[3].tag_ time-critical
+    · MEDIA   service_slide_boxs[1].tags[3].tag_ #
+    · MEDIA   service_slide_boxs[1].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/air-freight-and-time-critical-cargo-services/
+    · MEDIA   service_slide_boxs[2].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/effas.svg (id=3542)
+    · MEDIA   service_slide_boxs[2].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[2].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[2].sub_title    Sub Title
+    · TEXT    service_slide_boxs[2].title        Domestic and Cross-Border Road Transportation
+    · TEXT    service_slide_boxs[2].description  Reliable trucking services for local and international cargo movement with secure transit and route optimization.
+    · TEXT    service_slide_boxs[2].button_text  Button Text
+    · MEDIA   service_slide_boxs[2].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/domestic-and-cross-border-road-transport-solutions/
+    · TEXT    service_slide_boxs[2].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[2].enable_tags  yes
+    · TEXT    service_slide_boxs[2].tags[0].tag_ road freight services
+    · TEXT    service_slide_boxs[2].tags[1].tag_ cross-border trucking
+    · MEDIA   service_slide_boxs[2].tags[1].tag_ #
+    · TEXT    service_slide_boxs[2].tags[2].tag_ domestic transport solutions
+    · MEDIA   service_slide_boxs[2].tags[2].tag_ #
+    · TEXT    service_slide_boxs[2].tags[3].tag_ land freight logistics
+    · MEDIA   service_slide_boxs[2].tags[3].tag_ #
+    · MEDIA   service_slide_boxs[3].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/dwfwgre.svg (id=3546)
+    · MEDIA   service_slide_boxs[3].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[3].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[3].sub_title    Sub Title
+    · TEXT    service_slide_boxs[3].title        Cold Chain and Temperature-Controlled Transportation
+    · TEXT    service_slide_boxs[3].description  Secure refrigerated transport and storage solutions for pharmaceuticals, food products, and sensitive materials.
+    · TEXT    service_slide_boxs[3].button_text  Button Text
+    · MEDIA   service_slide_boxs[3].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/cold-chain-and-temperature-controlled-logistics/
+    · TEXT    service_slide_boxs[3].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[3].enable_tags  yes
+    · TEXT    service_slide_boxs[3].tags[0].tag_ cold chain
+    · MEDIA   service_slide_boxs[3].tags[0].tag_ #
+    · TEXT    service_slide_boxs[3].tags[1].tag_ refrigerated trucking
+    · MEDIA   service_slide_boxs[3].tags[1].tag_ #
+    · TEXT    service_slide_boxs[3].tags[2].tag_ pharmaceutical logistics
+    · MEDIA   service_slide_boxs[3].tags[2].tag_ #
+    · TEXT    button_text                        More Services
+    · TEXT    info_box_title                     Piris Road
+    · MEDIA   button_link                        https://aquamarine-gnat-712272.hostingersite.com/our-services/
+    · TEXT    enable_button_icon                 yes
+    · MEDIA   button_icon.value                  https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · TEXT    button_icon_2.value                flaticon flaticon-next
+    · TEXT    big_title_2                        Title 2
+  tx_service_section [3746016]  {design_style=style_7}
+    · TEXT    big_title                          Our Services
+    · MEDIA   image_1                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/author1.png (id=3196)
+    · MEDIA   service_slide_boxs[0].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/wfegrthyj.svg (id=3549)
+    · MEDIA   service_slide_boxs[0].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[0].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[0].sub_title    Sub Title
+    · TEXT    service_slide_boxs[0].title        Warehousing, Storage, and Inventory Solutions
+    · TEXT    service_slide_boxs[0].description  Secure storage facilities with inventory control and distribution support for supply chain optimization.
+    · TEXT    service_slide_boxs[0].button_text  Button Text
+    · MEDIA   service_slide_boxs[0].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/warehousing-and-inventory-management-services/
+    · TEXT    service_slide_boxs[0].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[0].enable_tags  yes
+    · TEXT    service_slide_boxs[0].tags[0].tag_ warehousing services
+    · MEDIA   service_slide_boxs[0].tags[0].tag_ #
+    · TEXT    service_slide_boxs[0].tags[1].tag_ logistics storage solutions
+    · MEDIA   service_slide_boxs[0].tags[1].tag_ #
+    · TEXT    service_slide_boxs[0].tags[2].tag_ inventory management systems
+    · MEDIA   service_slide_boxs[0].tags[2].tag_ #
+    · MEDIA   service_slide_boxs[1].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/qawees.svg (id=3552)
+    · MEDIA   service_slide_boxs[1].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[1].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[1].sub_title    Sub Title
+    · TEXT    service_slide_boxs[1].title        Customs Clearance and Regulatory Compliance Services
+    · TEXT    service_slide_boxs[1].description  Professional customs brokerage ensuring fast processing and full trade compliance at all border points.
+    · TEXT    service_slide_boxs[1].button_text  Button Text
+    · MEDIA   service_slide_boxs[1].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/customs-clearance-and-trade-compliance-services/
+    · TEXT    service_slide_boxs[1].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[1].enable_tags  yes
+    · TEXT    service_slide_boxs[1].tags[0].tag_ customs clearance
+    · MEDIA   service_slide_boxs[1].tags[0].tag_ #
+    · TEXT    service_slide_boxs[1].tags[1].tag_ customs brokerage Iraq
+    · MEDIA   service_slide_boxs[1].tags[1].tag_ #
+    · TEXT    service_slide_boxs[1].tags[2].tag_ import export documentation
+    · MEDIA   service_slide_boxs[1].tags[2].tag_ #
+    · TEXT    service_slide_boxs[1].tags[3].tag_ trade compliance solutions
+    · MEDIA   service_slide_boxs[1].tags[3].tag_ #
+    · MEDIA   service_slide_boxs[2].image_1      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/ihuf.svg (id=3555)
+    · MEDIA   service_slide_boxs[2].image_2      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/s1-logo-1.webp (id=2048)
+    · MEDIA   service_slide_boxs[2].image_3      https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/10/right-up.webp (id=2055)
+    · TEXT    service_slide_boxs[2].sub_title    Sub Title
+    · TEXT    service_slide_boxs[2].title        Project Cargo and Heavy Lift Logistics Solutions
+    · TEXT    service_slide_boxs[2].description  Specialized transport for oversized, high-weight, and complex industrial cargo with engineering support.
+    · TEXT    service_slide_boxs[2].button_text  Button Text
+    · MEDIA   service_slide_boxs[2].button_link  https://aquamarine-gnat-712272.hostingersite.com/services/project-cargo-and-heavy-lift-logistics-solutions/
+    · TEXT    service_slide_boxs[2].feature_text Responsive Design Interaction Design SEO Optimization CMS Integration
+    · TEXT    service_slide_boxs[2].enable_tags  yes
+    · TEXT    service_slide_boxs[2].tags[0].tag_ project cargo logistics
+    · MEDIA   service_slide_boxs[2].tags[0].tag_ #
+    · TEXT    service_slide_boxs[2].tags[1].tag_ heavy lift transportation
+    · MEDIA   service_slide_boxs[2].tags[1].tag_ #
+    · TEXT    service_slide_boxs[2].tags[2].tag_ oversized cargo shipping
+    · MEDIA   service_slide_boxs[2].tags[2].tag_ #
+    · TEXT    service_slide_boxs[2].tags[3].tag_ industrial equipment transport
+    · MEDIA   service_slide_boxs[2].tags[3].tag_ #
+    · TEXT    info_box_title                     Piris Road
+    · TEXT    enable_button_icon                 yes
+    · MEDIA   button_icon.value                  https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/btn-icon.svg (id=2722)
+    · TEXT    button_icon_2.value                flaticon flaticon-next
+    · TEXT    big_title_2                        Title 2
+container [1b8a905]
+  tx_about [d4b954f]  {design_style=style_4}
+    · TEXT    description                        Piris Road has been a reliable logistics partner for our operations. Their ability to manage complex shipments, handle customs efficiently, and maintain clear communication has significantly improved our supply chain performance. We value their professionalism, responsiveness, and commitment to meeting delivery timelines in demanding environments.
+    · TEXT    title_2                            Heading Title 2
+    · MEDIA   image_3                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/a4-bg-shape.webp (id=2324)
+    · MEDIA   image_4                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/a4-img-1.webp (id=2325)
+    · TEXT    feature_lists[0].feature_text      Feature Text
+    · TEXT    feature_heading                    Feature Heading
+    · TEXT    top_text                           Top Text
+    · TEXT    bottom_text                        Bottom Text
+    · TEXT    button_text                        Button Text
+    · MEDIA   exp_image                          https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/ChatGPT-Image-27-نوفمبر-2025،-06_11_30-م.png (id=3606)
+    · TEXT    exp_title                          Proven Experiences
+    · TEXT    exp_text                           With over a decade of hands-on logistics experience, Piris Road delivers consistent, compliant, and efficient freight solutions for commercial, industrial, and government sectors. Our proven track record reflects strong operational control and long-term client trust.
+    · TEXT    contact_label                      Contact Us
+    · TEXT    client_title                       Happy Clients
+    · TEXT    count_disc                         Countless ideas — transformed into successful digital experiences across industries
+    · TEXT    tags[0].tag_text                   Tag Text
+    · MEDIA   info_image_1                       https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Untitled-design-8-scaled.png (id=3217)
+    · TEXT    info_title_1                       Proven Performance Across Industries
+    · TEXT    info_description_1                 We support Oil & Gas, Medical, Government, Defense, and Commercial sectors with tailored logistics strategies, specialized handling procedures, and compliance-driven transport operations designed for critical supply chains.
+    · TEXT    info_2_title_1                     Info Title 1
+    · TEXT    info_2_description_1               Info Description 1
+    · TEXT    info_3_title_1                     Info Title 1
+    · TEXT    info_3_description_1               Info Description 1
+    · TEXT    rating_prefix                      /5
+    · TEXT    rating_title                       50+ Happy clients
+    · TEXT    gallery_heading                    Our Gallery
+    · MEDIA   brand_box[0].image_1               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Untitled-design.svg (id=3565)
+    · MEDIA   brand_box[0].image_2               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/logo-png-file-1-scaled.png (id=3335)
+    · MEDIA   brand_box[1].image_1               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/Untitled-design-12.png (id=3571)
+    · MEDIA   brand_box[1].image_2               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/logo-png-file-2-scaled.png (id=3336)
+    · MEDIA   brand_box[2].image_1               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/6.png (id=3604)
+    · MEDIA   brand_box[2].image_2               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/logo-png-file-2-scaled.png (id=3336)
+    · MEDIA   brand_box[3].image_1               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/7.png (id=3605)
+    · MEDIA   brand_box[3].image_2               https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/logo-png-file-2-scaled.png (id=3336)
+    · MEDIA   image_1                            https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2025/11/a4-bg-shape.webp (id=2324)
+    · TEXT    author_name                        Arnold Vain

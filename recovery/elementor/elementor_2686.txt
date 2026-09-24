@@ -1,0 +1,42 @@
+====================================================================================================
+PAGE 2686 — Footer 1 (ACTIVE FOOTER)   (type=tf-footer status=publish modified=2026-03-08 16:12:44)
+====================================================================================================
+container [4024d54]
+  tx_footers [fdd45c3]
+    · MEDIA   footer_logo                        https://aquamarine-gnat-712272.hostingersite.com/wp-content/uploads/2026/01/white-font-transparency-png-backgrounduse-for-black-background-scaled.png (id=3239)
+    · TEXT    footer_info_heading                About Us
+    · TEXT    footer_info_text                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    · TEXT    contact_form_icon.value            flaticon flaticon-notification
+    · TEXT    contact_form_heading               Newsletter
+    · TEXT    contact_form_text                  Keep up out latest update subscribe our newsletter!
+    · TEXT    link_list_1_heading                Quick Navigation
+    · TEXT    link_list_1[0].link_text           About us
+    · MEDIA   link_list_1[0].link_url            https://aquamarine-gnat-712272.hostingersite.com/about/
+    · TEXT    link_list_1[1].link_text           Services
+    · MEDIA   link_list_1[1].link_url            https://aquamarine-gnat-712272.hostingersite.com/our-services/
+    · TEXT    link_list_1[2].link_text           Contact Us
+    · MEDIA   link_list_1[2].link_url            https://aquamarine-gnat-712272.hostingersite.com/contact-us/
+    · TEXT    link_list_2_heading                All Page
+    · TEXT    link_list_2[0].link_text           Home
+    · MEDIA   link_list_2[0].link_url            https://aquamarine-gnat-712272.hostingersite.com/
+    · TEXT    link_list_2[1].link_text           Contact
+    · MEDIA   link_list_2[1].link_url            https://aquamarine-gnat-712272.hostingersite.com/contact-us/
+    · TEXT    link_list_2[2].link_text           Blogs
+    · MEDIA   link_list_2[2].link_url            https://aquamarine-gnat-712272.hostingersite.com/blog/
+    · TEXT    link_list_3_heading                Contact Us
+    · TEXT    link_list_3[0].link_text           info@pirisroad.iq
+    · MEDIA   link_list_3[0].link_url            mailto:info@pirisroad.iq
+    · TEXT    link_list_3[1].link_text           +9647503050108
+    · MEDIA   link_list_3[1].link_url            tel:+9647870008888
+    · TEXT    link_list_3[2].link_text           +9647870008888
+    · MEDIA   link_list_3[2].link_url            tel:+9647870008888
+    · TEXT    button_text                        info@gmail.com
+    · MEDIA   button_link                        mailto:info@gmail.com
+    · TEXT    list_items[0].info_label           Info Text
+    · TEXT    copyright_text                     © All rights reserved <span class="copyright-year"></span>
+    · TEXT    copyright_text_right               Piris Road 2026
+    · TEXT    feature_lists[0].feature_text      Feature Text
+    · TEXT    contact_info_text                  Contact Info Text
+    · TEXT    link_list_4[0].link_text           Privacy Policy
+    · TEXT    big_title                          Avista
+    · TEXT    contact_info_heading               Contact Info
