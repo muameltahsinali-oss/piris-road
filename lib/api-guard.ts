@@ -35,7 +35,7 @@ const buckets = new Map<string, Bucket>();
  * deployed) the edge proxy does, including through its CDN — verified live:
  * client-supplied values don't change the bucket. Re-check if the host changes.
  */
-function rateLimited(key: string, limit: number, windowMs: number): number {
+export function rateLimited(key: string, limit: number, windowMs: number): number {
   const now = Date.now();
   if (buckets.size > 5000) {
     for (const [k, b] of buckets) if (b.reset <= now) buckets.delete(k);
@@ -49,7 +49,7 @@ function rateLimited(key: string, limit: number, windowMs: number): number {
   return bucket.count > limit ? Math.ceil((bucket.reset - now) / 1000) : 0;
 }
 
-function clientIp(request: Request): string {
+export function clientIp(request: Request): string {
   const forwarded = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   return forwarded || request.headers.get('x-real-ip') || 'unknown';
 }

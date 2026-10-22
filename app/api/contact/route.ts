@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/quote-schema';
 import { guardSubmission, sendEmail } from '@/lib/api-guard';
 import { siteConfig } from '@/content/site';
+import { addMessage, addSubscriber, record, update } from '@/lib/admin/store';
 
 /**
  * Contact form from the "Need more assistance?" block.
@@ -13,7 +14,11 @@ export async function POST(request: Request) {
   if (response) return response;
 
   const { name, email, message, newsletter } = data;
-  const text = `Name: ${name}\nEmail: ${email}\nNewsletter: ${newsletter ? 'yes' : 'no'}\n\n${message}`;
+  // Saved first so the message shows up in /admin even if email fails.
+  const saved = await record('contact', () => addMessage({ name, email, message, newsletter }));
+  if (newsletter) await record('contact', () => addSubscriber(email, 'contact'));
+
+  const text =`Name: ${name}\nEmail: ${email}\nNewsletter: ${newsletter ? 'yes' : 'no'}\n\n${message}`;
 
   const sent = await sendEmail({
     to: process.env.CONTACT_RECIPIENT ?? siteConfig.contact.emails.general,
@@ -21,6 +26,8 @@ export async function POST(request: Request) {
     text,
     replyTo: email,
   });
+
+  if (saved) await record('contact', () => update('messages', saved.id, { delivered: sent }));
 
   if (sent === null) {
     console.info('[contact] no RESEND_API_KEY set; submission not emailed\n%s', text);

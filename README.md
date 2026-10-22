@@ -224,3 +224,17 @@ recovery/
   `recovery/staging-assets/`.
 - The layout and motion follow the staging site closely (see *Motion* below),
   but this is a clean rebuild, not a copy of the WordPress theme's code.
+
+## Admin dashboard (`/admin`)
+
+Arabic (RTL) dashboard for the site's forms: quote requests, contact messages
+and newsletter subscribers — KPIs, a 30-day chart, quote pipeline statuses,
+internal notes, search/filter, CSV export, plus read-only content and
+configuration overviews.
+
+- Every accepted form submission is saved by `lib/admin/store.ts` (JSON files
+  under `DATA_DIR`, default `.data/`) before the notification email is sent.
+- Sign-in: set `ADMIN_PASSWORD` (and optionally `ADMIN_SECRET`). Without a
+  password the dashboard stays locked.
+- **Railway:** attach a Volume and set `DATA_DIR` to its mount path (e.g.
+  `/data`), otherwise stored submissions are wiped on each deploy.

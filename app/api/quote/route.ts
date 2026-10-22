@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { quoteSchema, type QuoteData } from '@/lib/quote-schema';
 import { guardSubmission, sendEmail } from '@/lib/api-guard';
 import { siteConfig } from '@/content/site';
+import { addQuote, record, update } from '@/lib/admin/store';
 
 /**
  * Receives a freight quote request and emails it to Piris Road.
@@ -51,6 +52,9 @@ export async function POST(request: Request) {
   const { data, response } = await guardSubmission(request, quoteSchema, { name: 'quote', limit: 5 });
   if (response) return response;
 
+  // Saved first so the request shows up in /admin even if email fails.
+  const saved = await record('quote', () => addQuote(data));
+
   const body = formatBody(data);
   const sent = await sendEmail({
     to: process.env.QUOTE_RECIPIENT ?? siteConfig.contact.emails.general,
@@ -58,6 +62,8 @@ export async function POST(request: Request) {
     text: body,
     replyTo: data.email || undefined,
   });
+
+  if (saved) await record('quote', () => update('quotes', saved.id, { delivered: sent }));
 
   if (sent === null) {
     // No provider configured yet: accept the submission and log it so the form

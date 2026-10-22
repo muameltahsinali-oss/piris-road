@@ -7,3 +7,5 @@ out/
 next-env.d.ts
 .DS_Store
 .claude/
+# Admin dashboard submission store (see lib/admin/store.ts)
+.data/

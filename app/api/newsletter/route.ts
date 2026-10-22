@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { newsletterSchema } from '@/lib/quote-schema';
 import { guardSubmission, sendEmail } from '@/lib/api-guard';
 import { siteConfig } from '@/content/site';
+import { addSubscriber, record } from '@/lib/admin/store';
 
 /**
  * Footer newsletter signup — replaces Contact Form 7 form 2678.
@@ -16,6 +17,8 @@ export async function POST(request: Request) {
   if (response) return response;
 
   const { email } = data;
+  await record('newsletter', () => addSubscriber(email, 'newsletter'));
+
   const sent = await sendEmail({
     to: process.env.NEWSLETTER_RECIPIENT ?? siteConfig.contact.emails.general,
     subject: 'Newsletter subscription',
