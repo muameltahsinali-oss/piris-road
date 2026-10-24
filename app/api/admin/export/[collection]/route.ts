@@ -25,9 +25,11 @@ export async function GET(_request: Request, { params }: { params: Promise<{ col
   const { collection } = await params;
   if (!isCollection(collection)) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
+  // Flatten: form fields and deal fields become columns; the timeline is left out.
   const rows = (await list(collection)).map((r) => {
-    const { data, ...meta } = r as typeof r & { data?: Record<string, unknown> };
-    return { ...meta, ...(data ?? {}) } as Record<string, unknown>;
+    const { data, deal, history: _history, ...meta } = r as typeof r & { data?: Record<string, unknown>; deal?: Record<string, unknown> };
+    const dealCols = Object.fromEntries(Object.entries(deal ?? {}).map(([k, v]) => [`deal_${k}`, v]));
+    return { ...meta, ...dealCols, ...(data ?? {}) } as Record<string, unknown>;
   });
 
   const date = new Date().toISOString().slice(0, 10);

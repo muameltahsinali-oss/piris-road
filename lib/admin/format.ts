@@ -1,4 +1,4 @@
-import type { MessageStatus, QuoteStatus, SubscriberStatus } from './store';
+import type { Currency, MessageStatus, Priority, QuoteStatus, SubscriberStatus } from './store';
 
 /** Dashboard copy is Arabic; dates use the company's timezone (Erbil). */
 export const TIME_ZONE = 'Asia/Baghdad';
@@ -81,3 +81,56 @@ export const phoneDigits = (phone: string) => phone.replace(/[^\d+]/g, '');
  * destination inside RTL text (place names come from the English form).
  */
 export const route = (from: string, to: string) => `\u2066${from} → ${to}\u2069`;
+
+export const priorityMeta: Record<Priority, StatusMeta> = {
+  low: { label: 'منخفضة', tone: 'neutral' },
+  normal: { label: 'عادية', tone: 'info' },
+  high: { label: 'عالية', tone: 'progress' },
+  urgent: { label: 'عاجلة', tone: 'bad' },
+};
+
+export const PRIORITY_RANK: Record<Priority, number> = { urgent: 0, high: 1, normal: 2, low: 3 };
+
+export function formatMoney(amount: number | undefined, currency: Currency = 'USD') {
+  if (amount == null || Number.isNaN(amount)) return '—';
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: currency === 'IQD' ? 0 : 2 }).format(amount);
+}
+
+/** Today in the company timezone, YYYY-MM-DD — for follow-up due checks. */
+export const today = () => dayKey(new Date());
+
+export function followUpState(date: string | undefined): 'overdue' | 'today' | 'upcoming' | null {
+  if (!date) return null;
+  const t = today();
+  return date < t ? 'overdue' : date === t ? 'today' : 'upcoming';
+}
+
+export const followUpLabel = { overdue: 'متأخرة', today: 'اليوم', upcoming: 'قادمة' } as const;
+
+export function formatDay(key: string) {
+  return new Intl.DateTimeFormat('ar', { numberingSystem: 'latn', timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric' }).format(
+    new Date(`${key}T00:00:00Z`),
+  );
+}
+
+/** Hours between two ISO timestamps, or null. */
+export const hoursBetween = (a: string, b: string) => (new Date(b).getTime() - new Date(a).getTime()) / 3_600_000;
+
+export function formatDuration(hours: number | null) {
+  if (hours == null) return '—';
+  if (hours < 1) return `${Math.max(1, Math.round(hours * 60))} دقيقة`;
+  if (hours < 48) return `${Math.round(hours)} ساعة`;
+  return `${Math.round(hours / 24)} يوم`;
+}
+
+/** Percent change vs. a previous period; null when there is nothing to compare. */
+export function delta(current: number, previous: number): number | null {
+  if (!previous) return current ? null : 0;
+  return Math.round(((current - previous) / previous) * 100);
+}
+
+/** Hours from arrival to the first status change — how fast the team picks a request up. */
+export function firstResponseHours(r: { createdAt: string; history?: Array<{ type: string; at: string }> }): number | null {
+  const first = r.history?.find((e) => e.type === 'status');
+  return first ? hoursBetween(r.createdAt, first.at) : null;
+}

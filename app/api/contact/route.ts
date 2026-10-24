@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/quote-schema';
 import { guardSubmission, sendEmail } from '@/lib/api-guard';
 import { siteConfig } from '@/content/site';
-import { addMessage, addSubscriber, record, update } from '@/lib/admin/store';
+import { addMessage, addSubscriber, emailEvent, record, update } from '@/lib/admin/store';
 
 /**
  * Contact form from the "Need more assistance?" block.
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     replyTo: email,
   });
 
-  if (saved) await record('contact', () => update('messages', saved.id, { delivered: sent }));
+  if (saved) await record('contact', () => update('messages', saved.id, { delivered: sent }, emailEvent(sent)));
 
   if (sent === null) {
     console.info('[contact] no RESEND_API_KEY set; submission not emailed\n%s', text);

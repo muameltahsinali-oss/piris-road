@@ -23,10 +23,21 @@ import type { QuoteData } from '@/lib/quote-schema';
 export const QUOTE_STATUSES = ['new', 'in_progress', 'quoted', 'won', 'lost'] as const;
 export const MESSAGE_STATUSES = ['new', 'read', 'replied', 'archived'] as const;
 export const SUBSCRIBER_STATUSES = ['active', 'unsubscribed'] as const;
+export const PRIORITIES = ['low', 'normal', 'high', 'urgent'] as const;
+export const CURRENCIES = ['USD', 'IQD', 'EUR'] as const;
 
 export type QuoteStatus = (typeof QUOTE_STATUSES)[number];
 export type MessageStatus = (typeof MESSAGE_STATUSES)[number];
 export type SubscriberStatus = (typeof SUBSCRIBER_STATUSES)[number];
+export type Priority = (typeof PRIORITIES)[number];
+export type Currency = (typeof CURRENCIES)[number];
+
+/** One line in a record's activity timeline. */
+export type HistoryEvent = {
+  at: string;
+  type: 'created' | 'status' | 'note' | 'deal' | 'email';
+  text: string;
+};
 
 type Base = {
   id: string;
@@ -35,9 +46,21 @@ type Base = {
   notes: string;
   /** Whether the notification email was delivered (null = no provider configured). */
   delivered?: boolean | null;
+  /** Older records may not have one; treat as empty. */
+  history?: HistoryEvent[];
 };
 
-export type QuoteRecord = Base & { status: QuoteStatus; data: Omit<QuoteData, 'privacy_policy'> };
+/** Commercial follow-up fields the team fills in while working a quote. */
+export type Deal = {
+  amount?: number;
+  currency?: Currency;
+  priority?: Priority;
+  assignee?: string;
+  /** YYYY-MM-DD */
+  followUpAt?: string;
+};
+
+export type QuoteRecord = Base & { status: QuoteStatus; data: Omit<QuoteData, 'privacy_policy'>; deal?: Deal };
 export type MessageRecord = Base & {
   status: MessageStatus;
   data: { name: string; email: string; message: string; newsletter: boolean };
@@ -94,11 +117,26 @@ function mutate<C extends CollectionName, R>(name: C, fn: (rows: Collections[C][
 }
 
 const now = () => new Date().toISOString();
+const MAX_HISTORY = 100;
+
+function log(row: Base, event: Omit<HistoryEvent, 'at'> | undefined, at: string) {
+  if (!event) return;
+  row.history = [...(row.history ?? []), { ...event, at }].slice(-MAX_HISTORY);
+}
 
 export function addQuote(data: QuoteData) {
   const { privacy_policy: _accepted, ...fields } = data;
   const t = now();
-  const record: QuoteRecord = { id: randomUUID(), createdAt: t, updatedAt: t, notes: '', status: 'new', data: fields };
+  const record: QuoteRecord = {
+    id: randomUUID(),
+    createdAt: t,
+    updatedAt: t,
+    notes: '',
+    status: 'new',
+    data: fields,
+    deal: { priority: 'normal' },
+    history: [{ at: t, type: 'created', text: 'ورد الطلب من الموقع' }],
+  };
   return mutate('quotes', (rows) => {
     rows.unshift(record);
     return record;
@@ -107,7 +145,15 @@ export function addQuote(data: QuoteData) {
 
 export function addMessage(data: MessageRecord['data']) {
   const t = now();
-  const record: MessageRecord = { id: randomUUID(), createdAt: t, updatedAt: t, notes: '', status: 'new', data };
+  const record: MessageRecord = {
+    id: randomUUID(),
+    createdAt: t,
+    updatedAt: t,
+    notes: '',
+    status: 'new',
+    data,
+    history: [{ at: t, type: 'created', text: 'وردت الرسالة من الموقع' }],
+  };
   return mutate('messages', (rows) => {
     rows.unshift(record);
     return record;
@@ -121,6 +167,7 @@ export function addSubscriber(email: string, source: SubscriberRecord['source'])
   return mutate('subscribers', (rows) => {
     const existing = rows.find((r) => r.email === normalized);
     if (existing) {
+      if (existing.status !== 'active') log(existing, { type: 'status', text: 'أعاد الاشتراك' }, t);
       existing.status = 'active';
       existing.updatedAt = t;
       return existing;
@@ -133,31 +180,47 @@ export function addSubscriber(email: string, source: SubscriberRecord['source'])
       status: 'active',
       email: normalized,
       source,
+      history: [{ at: t, type: 'created', text: 'اشترك في النشرة' }],
     };
     rows.unshift(record);
     return record;
   });
 }
 
-export function update<C extends CollectionName>(
-  name: C,
-  id: string,
-  patch: Partial<Pick<Collections[C], 'status' | 'notes' | 'delivered'>>,
-) {
+type Patch<C extends CollectionName> = Partial<Pick<Collections[C], 'status' | 'notes' | 'delivered'>> &
+  (C extends 'quotes' ? { deal?: Deal } : unknown);
+
+export function update<C extends CollectionName>(name: C, id: string, patch: Patch<C>, event?: Omit<HistoryEvent, 'at'>) {
+  return updateMany(name, [id], patch, event).then((rows) => rows[0] ?? null);
+}
+
+/** Applies one patch (and one timeline entry) to several records at once. */
+export function updateMany<C extends CollectionName>(name: C, ids: string[], patch: Patch<C>, event?: Omit<HistoryEvent, 'at'>) {
+  const wanted = new Set(ids);
+  const t = now();
   return mutate(name, (rows) => {
-    const row = rows.find((r) => r.id === id);
-    if (!row) return null;
-    Object.assign(row, patch, { updatedAt: now() });
-    return row;
+    const changed: Collections[C][] = [];
+    for (const row of rows) {
+      if (!wanted.has(row.id)) continue;
+      Object.assign(row, patch, { updatedAt: t });
+      log(row, event, t);
+      changed.push(row);
+    }
+    return changed;
   });
 }
 
 export function remove(name: CollectionName, id: string) {
+  return removeMany(name, [id]).then((n) => n > 0);
+}
+
+export function removeMany(name: CollectionName, ids: string[]) {
+  const wanted = new Set(ids);
   return mutate(name, (rows) => {
-    const i = rows.findIndex((r) => r.id === id);
-    if (i === -1) return false;
-    rows.splice(i, 1);
-    return true;
+    const before = rows.length;
+    const kept = rows.filter((r) => !wanted.has(r.id));
+    rows.splice(0, rows.length, ...kept);
+    return before - kept.length;
   });
 }
 
@@ -172,4 +235,10 @@ export async function record<T>(label: string, write: () => Promise<T>): Promise
     console.error('[store] could not save %s submission', label, err);
     return null;
   }
+}
+
+/** Timeline entry for the notification email result (none when email isn't configured). */
+export function emailEvent(sent: boolean | null): Omit<HistoryEvent, 'at'> | undefined {
+  if (sent === null) return undefined;
+  return { type: 'email', text: sent ? 'أُرسل إشعار بالبريد إلى الشركة' : 'فشل إرسال إشعار البريد' };
 }

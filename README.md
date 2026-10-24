@@ -228,9 +228,14 @@ recovery/
 ## Admin dashboard (`/admin`)
 
 Arabic (RTL) dashboard for the site's forms: quote requests, contact messages
-and newsletter subscribers — KPIs, a 30-day chart, quote pipeline statuses,
-internal notes, search/filter, CSV export, plus read-only content and
-configuration overviews.
+and newsletter subscribers.
+
+- Overview with 7/30/90/365-day ranges, change vs. the previous period,
+  open pipeline value, response time and win rate.
+- Quotes: status pipeline, deal fields (value, currency, priority, assignee,
+  follow-up date), activity timeline, sorting, bulk actions, printable sheet.
+- Follow-ups board (overdue / today / upcoming), message detail pages,
+  12-month reports, global search, CSV export, content and settings overviews.
 
 - Every accepted form submission is saved by `lib/admin/store.ts` (JSON files
   under `DATA_DIR`, default `.data/`) before the notification email is sent.

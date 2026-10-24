@@ -1,48 +1,84 @@
 import Link from 'next/link';
-import { list, QUOTE_STATUSES } from '@/lib/admin/store';
-import { dayKey, route, formatNumber, formatShortDay, messageStatus, quoteStatus, timeAgo, toneDot } from '@/lib/admin/format';
-import { Card, Empty, PageTitle, StatusBadge } from '@/components/admin/ui';
+import { list, QUOTE_STATUSES, type QuoteRecord } from '@/lib/admin/store';
+import {
+  dayKey,
+  delta,
+  followUpLabel,
+  followUpState,
+  formatDay,
+  formatDuration,
+  formatMoney,
+  formatNumber,
+  formatShortDay,
+  firstResponseHours,
+  messageStatus,
+  priorityMeta,
+  quoteStatus,
+  route,
+  timeAgo,
+  toneDot,
+} from '@/lib/admin/format';
+import { BarChart, Card, countBy, Empty, Kpi, PageTitle, parseRange, RangeTabs, RankList, StatusBadge } from '@/components/admin/ui';
 import { cn } from '@/lib/utils';
 
 export const metadata = { title: 'نظرة عامة' };
 
-const DAYS = 30;
+const DAY = 86_400_000;
+const OPEN = new Set(['new', 'in_progress', 'quoted']);
 
-function countBy<T>(rows: T[], key: (r: T) => string, limit = 5) {
-  const m = new Map<string, number>();
-  for (const r of rows) {
-    const k = key(r).trim();
-    if (k) m.set(k, (m.get(k) ?? 0) + 1);
-  }
-  return [...m.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit);
-}
+const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
 
-export default async function Overview() {
+export default async function Overview({ searchParams }: { searchParams: Promise<{ range?: string }> }) {
+  const range = parseRange((await searchParams).range);
   const [quotes, messages, subscribers] = await Promise.all([list('quotes'), list('messages'), list('subscribers')]);
 
-  const since = Date.now() - DAYS * 86400_000;
-  const recent = <T extends { createdAt: string }>(rows: T[]) => rows.filter((r) => new Date(r.createdAt).getTime() >= since).length;
+  const now = Date.now();
+  const inWindow = (iso: string, from: number, to: number) => {
+    const t = new Date(iso).getTime();
+    return t >= from && t < to;
+  };
+  const cur = <T extends { createdAt: string }>(rows: T[]) => rows.filter((r) => inWindow(r.createdAt, now - range * DAY, now + DAY));
+  const prev = <T extends { createdAt: string }>(rows: T[]) => rows.filter((r) => inWindow(r.createdAt, now - 2 * range * DAY, now - range * DAY));
 
-  const newQuotes = quotes.filter((q) => q.status === 'new').length;
-  const unread = messages.filter((m) => m.status === 'new').length;
-  const activeSubs = subscribers.filter((s) => s.status === 'active').length;
-  const closed = quotes.filter((q) => q.status === 'won' || q.status === 'lost').length;
-  const won = quotes.filter((q) => q.status === 'won').length;
+  const qCur = cur(quotes);
+  const qPrev = prev(quotes);
+  const mCur = cur(messages);
+  const sCur = cur(subscribers);
 
-  // Daily quote requests, oldest → newest (RTL: oldest on the right).
-  const days = Array.from({ length: DAYS }, (_, i) => {
-    const d = new Date(Date.now() - (DAYS - 1 - i) * 86400_000);
-    return { key: dayKey(d), label: formatShortDay(d), count: 0 };
-  });
-  const byKey = new Map(days.map((d) => [d.key, d]));
-  for (const q of quotes) {
-    const d = byKey.get(dayKey(q.createdAt));
-    if (d) d.count++;
-  }
-  const peak = Math.max(1, ...days.map((d) => d.count));
+  const responseCur = avg(qCur.map(firstResponseHours).filter((h): h is number => h != null));
+  const responsePrev = avg(qPrev.map(firstResponseHours).filter((h): h is number => h != null));
 
-  const routes = countBy(quotes, (q) => route(q.data.loading_country, q.data.unloading_country));
-  const commodities = countBy(quotes, (q) => q.data.commodity);
+  // Pipeline value in USD only (amounts in other currencies are listed per quote).
+  const usd = (rows: QuoteRecord[]) => rows.filter((q) => q.deal?.amount != null && (q.deal.currency ?? 'USD') === 'USD').reduce((s, q) => s + (q.deal!.amount ?? 0), 0);
+  const openValue = usd(quotes.filter((q) => OPEN.has(q.status)));
+  const wonCur = qCur.filter((q) => q.status === 'won');
+  const closedCur = qCur.filter((q) => q.status === 'won' || q.status === 'lost');
+
+  // Chart: daily for ≤ 90 days, monthly for a year.
+  const bars =
+    range <= 90
+      ? Array.from({ length: range }, (_, i) => {
+          const d = new Date(now - (range - 1 - i) * DAY);
+          const key = dayKey(d);
+          return { key, label: formatShortDay(d), value: qCur.filter((q) => dayKey(q.createdAt) === key).length };
+        })
+      : Array.from({ length: 12 }, (_, i) => {
+          const d = new Date();
+          d.setUTCDate(1);
+          d.setUTCMonth(d.getUTCMonth() - (11 - i));
+          const key = dayKey(d).slice(0, 7);
+          const label = new Intl.DateTimeFormat('ar', { month: 'short', year: '2-digit', numberingSystem: 'latn' }).format(d);
+          return { key, label, value: qCur.filter((q) => dayKey(q.createdAt).startsWith(key)).length };
+        });
+
+  const followUps = quotes
+    .filter((q) => OPEN.has(q.status) && q.deal?.followUpAt)
+    .map((q) => ({ q, state: followUpState(q.deal!.followUpAt)! }))
+    .filter((f) => f.state !== 'upcoming' || f.q.deal!.followUpAt! <= dayKey(new Date(now + 7 * DAY)))
+    .sort((a, b) => a.q.deal!.followUpAt!.localeCompare(b.q.deal!.followUpAt!))
+    .slice(0, 6);
+
+  const urgent = quotes.filter((q) => OPEN.has(q.status) && (q.deal?.priority === 'urgent' || q.deal?.priority === 'high')).length;
 
   const activity = [
     ...quotes.map((q) => ({
@@ -55,85 +91,84 @@ export default async function Overview() {
     })),
     ...messages.map((m) => ({
       at: m.createdAt,
-      href: `/admin/messages#${m.id}`,
+      href: `/admin/messages/${m.id}`,
       kind: 'رسالة',
-      title: m.data.message.slice(0, 60) || '(بدون نص)',
+      title: m.data.message.slice(0, 70) || '(بدون نص)',
       who: m.data.name,
       badge: messageStatus[m.status],
     })),
   ]
     .sort((a, b) => b.at.localeCompare(a.at))
-    .slice(0, 8);
+    .slice(0, 7);
 
-  const kpis = [
-    { label: 'طلبات أسعار جديدة', value: newQuotes, sub: `${formatNumber(quotes.length)} طلب إجمالاً`, href: '/admin/quotes?status=new' },
-    { label: 'طلبات آخر 30 يوماً', value: recent(quotes), sub: 'طلبات أسعار واردة', href: '/admin/quotes' },
-    { label: 'رسائل غير مقروءة', value: unread, sub: `${formatNumber(recent(messages))} رسالة آخر 30 يوماً`, href: '/admin/messages?status=new' },
-    { label: 'مشتركون نشطون', value: activeSubs, sub: `${formatNumber(recent(subscribers))} جديد آخر 30 يوماً`, href: '/admin/subscribers' },
-  ];
+  const label = `آخر ${range === 365 ? 'سنة' : `${range} يوماً`}`;
 
   return (
     <>
-      <PageTitle title="نظرة عامة" subtitle="ملخص نشاط نماذج الموقع: طلبات الأسعار، رسائل التواصل، والنشرة البريدية." />
+      <PageTitle
+        title="نظرة عامة"
+        subtitle={`أداء نماذج الموقع خلال ${label} مقارنةً بالفترة السابقة.`}
+        actions={<RangeTabs base="/admin" current={range} />}
+      />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {kpis.map((k) => (
-          <Link key={k.label} href={k.href} className="rounded-xl border border-slate-200 bg-white p-5 transition hover:border-slate-300 hover:shadow-sm">
-            <p className="text-sm text-slate-500">{k.label}</p>
-            <p className="mt-2 text-3xl font-semibold tabular-nums text-slate-900">{formatNumber(k.value)}</p>
-            <p className="mt-1 text-xs text-slate-500">{k.sub}</p>
-          </Link>
-        ))}
+        <Kpi
+          label="طلبات الأسعار"
+          icon="quote"
+          value={formatNumber(qCur.length)}
+          change={delta(qCur.length, qPrev.length)}
+          sub={<span>{quotes.filter((q) => q.status === 'new').length} بانتظار المراجعة</span>}
+          href="/admin/quotes"
+        />
+        <Kpi
+          label="قيمة الصفقات المفتوحة"
+          icon="chart"
+          value={formatMoney(openValue)}
+          sub={<span>المقبول في الفترة: {formatMoney(usd(wonCur))}</span>}
+          href="/admin/quotes?status=quoted"
+        />
+        <Kpi
+          label="متوسط زمن الاستجابة"
+          icon="clock"
+          value={formatDuration(responseCur)}
+          change={responseCur != null && responsePrev != null ? delta(Math.round(responseCur), Math.round(responsePrev)) : null}
+          invert
+          sub={<span>من الورود حتى أول تغيير حالة</span>}
+        />
+        <Kpi
+          label="نسبة القبول"
+          icon="check"
+          value={closedCur.length ? `${Math.round((wonCur.length / closedCur.length) * 100)}%` : '—'}
+          sub={
+            <span>
+              {wonCur.length} مقبول من {closedCur.length} مغلق
+            </span>
+          }
+        />
+      </div>
+
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <MiniStat label="رسائل جديدة" value={mCur.length} note={`${messages.filter((m) => m.status === 'new').length} غير مقروءة`} href="/admin/messages?status=new" />
+        <MiniStat label="مشتركون جدد" value={sCur.length} note={`${subscribers.filter((s) => s.status === 'active').length} نشط إجمالاً`} href="/admin/subscribers" />
+        <MiniStat label="طلبات عالية الأولوية" value={urgent} note="مفتوحة (عاجلة أو عالية)" href="/admin/quotes?sort=priority" />
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-3">
-        <Card title="طلبات الأسعار اليومية — آخر 30 يوماً" className="xl:col-span-2">
+        <Card title={`طلبات الأسعار — ${label}`} className="xl:col-span-2">
           {quotes.length === 0 ? (
             <Empty>لا توجد طلبات أسعار بعد. ستظهر هنا فور وصول أول طلب من صفحة «اطلب عرض سعر».</Empty>
           ) : (
-            <figure>
-              <div className="relative h-48">
-                {/* Recessive gridlines at 0 / 50% / 100% of the peak. */}
-                {[0, 0.5, 1].map((f) => (
-                  <div key={f} className="pointer-events-none absolute inset-x-0 border-t border-slate-100" style={{ bottom: `${f * 100}%` }}>
-                    {(f !== 0.5 || peak >= 4) && (
-                      <span className="absolute -top-2.5 end-full me-2 text-[11px] tabular-nums text-slate-400">{Math.round(f * peak)}</span>
-                    )}
-                  </div>
-                ))}
-                <div className="absolute inset-0 ms-6 flex items-end gap-[2px]">
-                  {days.map((d) => (
-                    <div key={d.key} className="group relative flex h-full flex-1 items-end" tabIndex={0} aria-label={`${d.label}: ${d.count}`}>
-                      <div
-                        className={cn('w-full rounded-t-[4px] bg-brand transition-colors group-hover:bg-brand-dark', d.count === 0 && 'bg-transparent')}
-                        style={{ height: `${(d.count / peak) * 100}%` }}
-                      />
-                      <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-1 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-xs text-white group-hover:block group-focus:block">
-                        {d.label}: <span className="font-semibold tabular-nums">{d.count}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="ms-6 mt-2 flex justify-between text-[11px] text-slate-400">
-                <span>{days[0].label}</span>
-                <span>{days[days.length - 1].label}</span>
-              </div>
-              <figcaption className="mt-3 text-xs text-slate-500">
-                الإجمالي خلال الفترة: <span className="font-semibold tabular-nums text-slate-700">{recent(quotes)}</span> · أعلى يوم:{' '}
-                <span className="font-semibold tabular-nums text-slate-700">{Math.max(...days.map((d) => d.count))}</span>
-              </figcaption>
-            </figure>
+            <BarChart bars={bars} />
           )}
         </Card>
 
-        <Card title="مسار طلبات الأسعار">
+        <Card title="مسار الطلبات" action={<Link href="/admin/quotes" className="text-xs text-brand hover:underline">عرض الكل</Link>}>
           <ul className="space-y-3">
             {QUOTE_STATUSES.map((s) => {
               const n = quotes.filter((q) => q.status === s).length;
               return (
                 <li key={s}>
-                  <Link href={`/admin/quotes?status=${s}`} className="block">
+                  <Link href={`/admin/quotes?status=${s}`} className="block rounded-md hover:bg-slate-50">
                     <div className="mb-1 flex items-center justify-between text-sm">
                       <span className="flex items-center gap-2 text-slate-700">
                         <span className={cn('h-2 w-2 rounded-full', toneDot[quoteStatus[s].tone])} aria-hidden />
@@ -149,14 +184,40 @@ export default async function Overview() {
               );
             })}
           </ul>
-          <p className="mt-5 border-t border-slate-100 pt-4 text-sm text-slate-600">
-            نسبة القبول من الطلبات المغلقة:{' '}
-            <span className="font-semibold tabular-nums text-slate-900">{closed ? `${Math.round((won / closed) * 100)}%` : '—'}</span>
-          </p>
         </Card>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-3">
+        <Card title="المتابعات القريبة" action={<Link href="/admin/follow-ups" className="text-xs text-brand hover:underline">كل المتابعات</Link>}>
+          {followUps.length === 0 ? (
+            <p className="text-sm text-slate-500">لا توجد متابعات مستحقة خلال الأسبوع. حدّد «موعد المتابعة» داخل أي طلب سعر.</p>
+          ) : (
+            <ul className="-my-2 divide-y divide-slate-100">
+              {followUps.map(({ q, state }) => (
+                <li key={q.id}>
+                  <Link href={`/admin/quotes/${q.id}`} className="flex items-center justify-between gap-3 py-2.5">
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium text-slate-900">{q.data.company_name || q.data.your_name || route(q.data.loading_country, q.data.unloading_country)}</p>
+                      <p className="text-xs text-slate-500">
+                        {formatDay(q.deal!.followUpAt!)}
+                        {q.deal?.assignee && ` · ${q.deal.assignee}`}
+                      </p>
+                    </div>
+                    <span
+                      className={cn(
+                        'shrink-0 rounded-full px-2 py-0.5 text-xs font-medium',
+                        state === 'overdue' ? 'bg-rose-50 text-rose-700' : state === 'today' ? 'bg-amber-50 text-amber-800' : 'bg-slate-100 text-slate-600',
+                      )}
+                    >
+                      {followUpLabel[state]}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Card>
+
         <Card title="أحدث النشاطات" className="xl:col-span-2">
           {activity.length === 0 ? (
             <Empty>لا يوجد نشاط بعد.</Empty>
@@ -164,7 +225,7 @@ export default async function Overview() {
             <ul className="-my-2 divide-y divide-slate-100">
               {activity.map((a) => (
                 <li key={a.href}>
-                  <Link href={a.href} className="flex items-center justify-between gap-4 py-3 hover:bg-slate-50/60">
+                  <Link href={a.href} className="flex items-center justify-between gap-4 py-2.5">
                     <div className="min-w-0">
                       <p className="truncate text-sm font-medium text-slate-900">{a.title}</p>
                       <p className="mt-0.5 truncate text-xs text-slate-500">
@@ -178,31 +239,36 @@ export default async function Overview() {
             </ul>
           )}
         </Card>
+      </div>
 
-        <div className="space-y-6">
-          <TopList title="أكثر المسارات طلباً" rows={routes} />
-          <TopList title="أكثر أنواع البضائع" rows={commodities} />
-        </div>
+      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <Card title="أكثر المسارات طلباً">
+          <RankList rows={countBy(qCur, (q) => route(q.data.loading_country, q.data.unloading_country), 5)} total={qCur.length} />
+        </Card>
+        <Card title="أكثر أنواع البضائع">
+          <RankList rows={countBy(qCur, (q) => q.data.commodity, 5)} total={qCur.length} />
+        </Card>
+        <Card title="الطلبات حسب الأولوية">
+          <RankList
+            rows={(['urgent', 'high', 'normal', 'low'] as const)
+              .map((p) => [priorityMeta[p].label, qCur.filter((q) => (q.deal?.priority ?? 'normal') === p).length] as [string, number])
+              .filter(([, n]) => n > 0)}
+            total={qCur.length}
+          />
+        </Card>
       </div>
     </>
   );
 }
 
-function TopList({ title, rows }: { title: string; rows: Array<[string, number]> }) {
+function MiniStat({ label, value, note, href }: { label: string; value: number; note: string; href: string }) {
   return (
-    <Card title={title}>
-      {rows.length === 0 ? (
-        <p className="text-sm text-slate-500">لا توجد بيانات بعد.</p>
-      ) : (
-        <ol className="space-y-2">
-          {rows.map(([label, n]) => (
-            <li key={label} className="flex items-center justify-between gap-3 text-sm">
-              <span className="truncate text-slate-700">{label}</span>
-              <span className="tabular-nums font-medium text-slate-900">{n}</span>
-            </li>
-          ))}
-        </ol>
-      )}
-    </Card>
+    <Link href={href} className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4 transition hover:border-slate-300">
+      <div>
+        <p className="text-sm text-slate-500">{label}</p>
+        <p className="mt-0.5 text-xs text-slate-400">{note}</p>
+      </div>
+      <p className="text-2xl font-semibold tabular-nums text-slate-900">{formatNumber(value)}</p>
+    </Link>
   );
 }
