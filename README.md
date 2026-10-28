@@ -235,7 +235,15 @@ and newsletter subscribers.
 - Quotes: status pipeline, deal fields (value, currency, priority, assignee,
   follow-up date), activity timeline, sorting, bulk actions, printable sheet.
 - Follow-ups board (overdue / today / upcoming), message detail pages,
-  12-month reports, global search, CSV export, content and settings overviews.
+  12-month reports, global search, CSV export.
+- Texts & translation editor: every string the site renders, in English and
+  Arabic, grouped by page/section, with search and "missing Arabic" filters.
+  Edits are stored in `DATA_DIR/texts.json` (`lib/text-overrides.ts`), applied
+  by `getTranslate()` and the blog post localiser, and published immediately
+  (all pages are revalidated on save; `revalidate = 300` covers fresh deploys).
+- The editor's list of strings is `content/text-catalog.json`, captured from a
+  real build. After adding or changing copy in the code, regenerate it with
+  `npm run texts:catalog` (don't run it while `next dev` is running).
 
 - Every accepted form submission is saved by `lib/admin/store.ts` (JSON files
   under `DATA_DIR`, default `.data/`) before the notification email is sent.

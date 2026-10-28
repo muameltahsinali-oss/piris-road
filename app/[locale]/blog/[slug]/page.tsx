@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getTranslate } from '@/lib/i18n';
+import { getTextOverrides } from '@/lib/text-overrides';
 import { truncate } from '@/lib/utils';
 import { posts, getPost } from '@/content/posts';
 import { Container } from '@/components/ui/Section';
@@ -41,7 +42,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
   const post = getPost(slug);
   if (!post) notFound();
   const l = localized(post, locale);
-  const bodyIsArabic = locale === 'ar' && Boolean(post.bodyAr);
+  const bodyIsArabic = locale === 'ar' && Boolean(post.bodyAr || getTextOverrides().ar[post.body]);
 
   const crumbs = [
     ...(post.category ? [{ label: t(post.category) }] : []),

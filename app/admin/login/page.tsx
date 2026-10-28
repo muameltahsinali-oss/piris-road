@@ -29,10 +29,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
         <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           {!configured ? (
-            <p className="text-sm leading-relaxed text-slate-700">
-              لوحة التحكم مقفلة لأن متغير البيئة <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs" dir="ltr">ADMIN_PASSWORD</code> غير
-              مضبوط على الخادم. أضفه ثم أعد تشغيل الموقع.
-            </p>
+            <p className="text-center text-sm leading-relaxed text-slate-700">لوحة التحكم غير مفعّلة بعد. تواصل مع الدعم الفني لتفعيلها.</p>
           ) : (
             <form action={login} className="space-y-4">
               <label className="block">

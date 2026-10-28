@@ -1,5 +1,6 @@
 import dictionary from '@/content/ar-dictionary.json';
 import type { Locale } from '@/i18n/routing';
+import { captureSource, getTextOverrides } from '@/lib/text-overrides';
 
 /**
  * Translation via recovered TranslatePress data.
@@ -10,15 +11,30 @@ import type { Locale } from '@/i18n/routing';
  *  - translations harvested from the staging site's /ar/ pages for copy that
  *    was added after the backup (backup wins wherever the two disagree).
  * Anything never translated falls back to English, as on the live site.
+ *
+ * Edits made in the admin dashboard (lib/text-overrides.ts) win over both the
+ * English source and the dictionary.
  */
 const ar = dictionary as Record<string, string>;
 
 export type Translate = (source: string) => string;
 
 export function getTranslate(locale: Locale | string): Translate {
-  if (locale !== 'ar') return (s) => s;
-  return (s) => ar[s] ?? ar[s.trim()] ?? s;
+  const overrides = getTextOverrides();
+  if (locale !== 'ar') {
+    return (s) => {
+      captureSource(s);
+      return overrides.en[s] ?? s;
+    };
+  }
+  return (s) => {
+    captureSource(s);
+    return overrides.ar[s] ?? ar[s] ?? ar[s.trim()] ?? s;
+  };
 }
+
+/** The built-in Arabic for a source string (dictionary only, no overrides). */
+export const defaultArabic = (source: string): string | undefined => ar[source] ?? ar[source.trim()];
 
 export const isRtl = (locale: string) => locale === 'ar';
 export const dirFor = (locale: string) => (isRtl(locale) ? 'rtl' : 'ltr');

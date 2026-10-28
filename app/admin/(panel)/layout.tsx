@@ -63,11 +63,11 @@ export default async function PanelLayout({ children }: { children: React.ReactN
             المشتركون
           </NavLink>
           <p className="hidden px-3 pb-1 pt-4 text-[11px] font-medium text-slate-500 lg:block">الموقع</p>
-          <NavLink href="/admin/content" icon="doc">
-            المحتوى
+          <NavLink href="/admin/texts" icon="note">
+            النصوص والترجمة
           </NavLink>
-          <NavLink href="/admin/settings" icon="cog">
-            الإعدادات
+          <NavLink href="/admin/content" icon="doc">
+            الخدمات والمقالات
           </NavLink>
         </nav>
         <div className="hidden border-t border-white/10 p-3 lg:block">

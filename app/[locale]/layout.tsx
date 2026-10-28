@@ -33,6 +33,14 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
 });
 
+/**
+ * Pages are prerendered, then refreshed so text edited in the dashboard shows
+ * up: saving a text revalidates every page at once, and this interval covers
+ * a fresh deploy (the build can't see the data volume, so it renders the
+ * defaults until the first refresh).
+ */
+export const revalidate = 300;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

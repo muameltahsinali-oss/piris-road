@@ -179,10 +179,6 @@ export default async function QuoteDetail({ params }: { params: Promise<{ id: st
                 <dt>زمن أول استجابة</dt>
                 <dd className="text-slate-800">{formatDuration(firstResponseHours(quote))}</dd>
               </div>
-              <div className="flex justify-between gap-2">
-                <dt>إشعار البريد</dt>
-                <dd className="text-slate-800">{quote.delivered === true ? 'أُرسل' : quote.delivered === false ? 'فشل الإرسال' : 'غير مفعّل'}</dd>
-              </div>
             </dl>
           </Card>
 

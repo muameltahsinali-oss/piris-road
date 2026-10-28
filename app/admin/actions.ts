@@ -28,6 +28,8 @@ import {
 } from '@/lib/admin/store';
 import { messageStatus, priorityMeta, quoteStatus, subscriberStatus } from '@/lib/admin/format';
 import { encodeFlash, FLASH_COOKIE } from '@/lib/admin/flash';
+import { getTextEntries } from '@/lib/admin/text-catalog';
+import { saveTextOverride } from '@/lib/text-overrides';
 
 const STATUSES: Record<CollectionName, readonly string[]> = {
   quotes: QUOTE_STATUSES,
@@ -164,4 +166,48 @@ export async function bulkAction(form: FormData) {
     return;
   }
   throw new Error('Invalid operation');
+}
+
+async function textEntry(form: FormData) {
+  await requireAdmin();
+  const entry = getTextEntries().find((e) => e.id === str(form, 'id'));
+  if (!entry) throw new Error('Unknown text');
+  return entry;
+}
+
+/** Every page may use the text: refresh them all, then confirm. */
+async function publishTexts(message: string) {
+  revalidatePath('/', 'layout');
+  await flash(message);
+}
+
+/**
+ * Save one text from the editor. A value equal to the built-in default (or
+ * empty) removes that language's override, so the content files stay the
+ * single fallback.
+ */
+export async function saveText(form: FormData) {
+  const entry = await textEntry(form);
+  const limit = entry.html ? 100_000 : 5_000;
+  const clean = (v: FormDataEntryValue | null) => String(v ?? '').replace(/\r\n/g, '\n').slice(0, limit);
+  const en = clean(form.get('en'));
+  const ar = clean(form.get('ar'));
+  await saveTextOverride(entry.source, {
+    en: !en.trim() || en === entry.defaultEn ? null : en,
+    ar: !ar.trim() || ar === entry.defaultAr ? null : ar,
+  });
+  await publishTexts('تم حفظ النص ونشره على الموقع');
+}
+
+/** "Restore original": drop both overrides for the text. */
+export async function restoreText(form: FormData) {
+  const entry = await textEntry(form);
+  await saveTextOverride(entry.source, { en: null, ar: null });
+  await publishTexts('تمت استعادة النص الأصلي');
+}
+
+/** "Delete selected" in a list's bulk bar (its own action, so it doesn't depend on the submit button's value). */
+export async function bulkDelete(form: FormData) {
+  form.set('delete', '1');
+  await bulkAction(form);
 }

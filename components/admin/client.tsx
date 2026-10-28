@@ -35,7 +35,10 @@ export function ConfirmSubmit({
   message,
   className,
   ...rest
-}: { children: React.ReactNode; message: string; className?: string } & Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'name' | 'value' | 'formNoValidate'>) {
+}: { children: React.ReactNode; message: string; className?: string } & Pick<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'name' | 'value' | 'formNoValidate' | 'formAction'
+>) {
   const { pending } = useFormStatus();
   return (
     <button

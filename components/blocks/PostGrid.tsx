@@ -10,6 +10,7 @@ import { insightsSection } from '@/content/company';
 import { siteConfig } from '@/content/site';
 import { formatDate, truncate } from '@/lib/utils';
 import type { Translate } from '@/lib/i18n';
+import { getTextOverrides } from '@/lib/text-overrides';
 
 /**
  * Whether the post has a real featured image. On staging, a post whose only
@@ -19,13 +20,18 @@ import type { Translate } from '@/lib/i18n';
  */
 export const hasFeaturedImage = (post: Post) => !/<img\b/i.test(post.body);
 
-/** Title/excerpt/body in the current locale, falling back to English. */
+/**
+ * Title/excerpt/body in the current locale, falling back to English. Edits
+ * from the dashboard are keyed by the English field, like every other text.
+ */
 export function localized(post: Post, locale: string) {
-  const ar = locale === 'ar';
+  const o = getTextOverrides();
+  const pick = (en: string, arabic: string) =>
+    locale === 'ar' ? (o.ar[en] ?? (arabic || o.en[en] || en)) : (o.en[en] ?? en);
   return {
-    title: (ar && post.titleAr) || post.title,
-    excerpt: (ar && post.excerptAr) || post.excerpt,
-    body: (ar && post.bodyAr) || post.body,
+    title: pick(post.title, post.titleAr),
+    excerpt: pick(post.excerpt, post.excerptAr),
+    body: pick(post.body, post.bodyAr),
   };
 }
 

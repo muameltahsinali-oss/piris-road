@@ -14,7 +14,7 @@ import {
 import { ButtonLink, Card, Empty, PageTitle, Pagination, paginate, SearchBox, selectClass, StatusBadge, StatusTabs } from '@/components/admin/ui';
 import { BulkBar, ConfirmSubmit } from '@/components/admin/client';
 import { Icon } from '@/components/admin/icons';
-import { bulkAction } from '@/app/admin/actions';
+import { bulkAction, bulkDelete } from '@/app/admin/actions';
 import { cn } from '@/lib/utils';
 
 export const metadata = { title: 'طلبات الأسعار' };
@@ -115,7 +115,7 @@ export default async function QuotesPage({ searchParams }: { searchParams: Promi
             <button type="submit" className="rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-700">
               تطبيق
             </button>
-            <ConfirmSubmit name="delete" value="1" formNoValidate message="حذف الطلبات المحددة نهائياً؟" className="px-3 py-1.5">
+            <ConfirmSubmit formAction={bulkDelete} formNoValidate message="حذف الطلبات المحددة نهائياً؟" className="px-3 py-1.5">
               حذف المحدد
             </ConfirmSubmit>
           </BulkBar>
